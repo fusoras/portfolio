@@ -1,13 +1,16 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
 # ***** Minimum age config *****
 # only install package versions published at least 2 days ago
 minimumReleaseAge: 2880 # minutes
 # exclude trusted packages from the age gate
 minimumReleaseAgeExclude:
-- typescript
-- svelte
-- react
-- react-dom
-- stylelint
+  - typescript
+  - svelte
+  - react
+  - react-dom
+  - stylelint
 
 # ***** Built dependencies *****
 onlyBuiltDependencies:

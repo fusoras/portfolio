@@ -1,51 +1,37 @@
 ---
 import CardTech from "@/components/CardTech.astro";
-import IconPodman from "@/components/icons/IconPodman.astro";
-import IconDebian from "@/components/icons/IconDebian.astro";
-import IconOllama from "@/components/icons/IconOllama.astro";
-import IconGit from "@/components/icons/IconGit.astro";
-import IconGiHub from "@/components/icons/IconGithub.astro";
-import IconLinux from "@/components/icons/IconLinux.astro";
-import IconBun from "@/components/icons/IconBun.astro";
-import IconNode from "@/components/icons/IconNode.astro";
-import IconMarkdown from "@/components/icons/IconMarkdown.astro";
-import { getI18N } from "@/i18n/index"
+import { getI18N } from "@/i18n/index";
 
-const { currentLocale } = Astro
+const { currentLocale } = Astro;
 const locate = getI18N({ currentLocale });
+
+const icons = [
+    "Linux",
+    "Debian",
+    "Podman",
+    "Ollama",
+    "Git",
+    "GitHub",
+    "NodeJS",
+];
 ---
 
 <h2>{locate.OTHER_TECH_TITLE}</h2>
 
 <div class="tech-card-container">
-    <CardTech title="Linux">
-        <IconLinux/>
-    </CardTech>
-    <CardTech title="Debian">
-        <IconDebian/>
-    </CardTech>
-    <CardTech title="Podman">
-        <IconPodman/>
-    </CardTech>
-    <CardTech title="Ollama">
-        <IconOllama/>
-    </CardTech>
-    <CardTech title="Git">
-        <IconGit/>
-    </CardTech>
-    <CardTech title="GitHub">
-        <IconGiHub/>
-    </CardTech>
-    <CardTech title="Node.js">
-        <IconNode />
-    </CardTech>
-    <CardTech title="Bun">
-        <IconBun/>
-    </CardTech>
-    <CardTech title="Markdown">
-        <IconMarkdown />
-    </CardTech>
+    {
+        icons.map((item) => (
+            <CardTech title={item}>
+                <svg>
+                    <use
+                        href={`/assets/icons/tech.svg#${item.toLowerCase()}`}
+                    />
+                </svg>
+            </CardTech>
+        ))
+    }
 </div>
+
 <style>
     h2 {
         margin-bottom: 2rem;
@@ -53,10 +39,7 @@ const locate = getI18N({ currentLocale });
 
     .tech-card-container {
         display: grid;
-        grid-template-columns: repeat(
-            auto-fill,    
-            minmax(70px, 1fr)
-        );
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
         justify-items: center;
         gap: 18px;
     }
