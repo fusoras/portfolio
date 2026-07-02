@@ -13,8 +13,8 @@ import IconSvelte from "@/components/icons/IconSvelte.astro";
 import IconTypeScript from "@/components/icons/IconTypeScript.astro";
 import IconOpenRouter from "@/components/icons/IconOpenRouter.astro";
 import IconFirebase from "@/components/icons/IconFirebase.astro";
-import { ROUTES } from '@/config';
-import { getI18N } from "@/i18n/index"
+import { ROUTES } from "@/config.ts";
+import { getI18N } from "@/i18n/index.ts"
 
 const { currentLocale } = Astro
 const locate = getI18N({ currentLocale });

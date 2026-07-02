@@ -1,9 +1,9 @@
 ---
-import { ROUTES } from '@/config'
+import { ROUTES } from "@/config.ts"
 const { currentLocale } = Astro
 const { title, description, lang } = Astro.props
 const canonicalUrl = new URL(Astro.url.pathname, ROUTES.HOSTNAME).toString()
-const author = 'FuSoraS'
+const author = "FuSoraS"
 ---
 <!doctype html>
 <html lang={currentLocale}>
