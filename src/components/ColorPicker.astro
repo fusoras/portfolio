@@ -1,51 +1,48 @@
 <color-picker>
-<div class="selector-accent">
+  <div class="selector-accent">
         <input type="color" name="color" value="#29a35c" class="color-picker-accent">
         <button class="reset-color" aria-label="Restablecer color de acento" title="Restablecer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-rotate-clockwise" viewBox="0 0 24 24"><path fill="none" stroke="none" d="M0 0h24v24H0z"/><path d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"/></svg>
         </button>
-</div>
+  </div>
 </color-picker>
 <script>
+const root = document.documentElement;
 
-</script>
-<script>
-    const root = document.documentElement;
-    const pickerColorAccent = document.querySelector(".color-picker-accent") as HTMLInputElement
-    const resetColor = document.querySelector(".reset-color")
-    const initColor = pickerColorAccent.getAttribute("value") as string
+class ColorPicker extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
 
-    class ColorPicker extends HTMLElement {
-      constructor() {
-        super();
-        this.attachShadow({ mode: "open" });
-      }
-
-      connectedCallback() {
-        this.render();
-        this.init();
-      }
-      render() {
-        this.shadowRoot?.setHTMLUnsafe(/*html*/ `
+  connectedCallback() {
+    this.render();
+    this.init();
+  }
+  render() {
+    this.shadowRoot?.setHTMLUnsafe(/*html*/ `
             <slot></slot>
         `)
-      }
-      init() {
+  }
+  init() {
+const pickerColorAccent = document.querySelector(".color-picker-accent")
+const resetColor = document.querySelector(".reset-color")
+const initColor = pickerColorAccent.getAttribute("value")
 
     pickerColorAccent.addEventListener("input", (e) => {
-        if(e.target instanceof HTMLInputElement) {
-            pickerColorAccent.setAttribute("value", e.target.value)
-            root.style.setProperty("--accent", e.target.value)
-        }
+      if (e.target instanceof HTMLInputElement) {
+        pickerColorAccent.setAttribute("value", e.target.value);
+        root.style.setProperty("--accent", e.target.value);
+      }
     }, { passive: true })
 
     resetColor?.addEventListener("click", () => {
-        pickerColorAccent.setAttribute("value", initColor)
-        pickerColorAccent.value = initColor;
-        root.style.removeProperty("--accent")
+      pickerColorAccent.setAttribute("value", initColor)
+      pickerColorAccent.value = initColor;
+      root.style.removeProperty("--accent")
     }, { passive: true })
-      }
-    }
+  }
+}
 
 customElements.define("color-picker", ColorPicker);
 </script>

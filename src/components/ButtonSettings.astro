@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from "@/components/ThemeToggle.astro";
+import ColorPicker from "@/components/ColorPicker.astro";
 import { getI18N } from "@/i18n/index.ts"
 
 const { currentLocale } = Astro
@@ -17,13 +18,8 @@ const locate = getI18N({ currentLocale });
     </div>
 
     <div class="line"></div>
-
-    <div class="selector-accent">
-        <input type="color" name="color" value="#29a35c" class="color-picker-accent">
-        <button class="reset-color" aria-label="Restablecer color de acento" title="Restablecer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-rotate-clockwise" viewBox="0 0 24 24"><path fill="none" stroke="none" d="M0 0h24v24H0z"/><path d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"/></svg>
-        </button>
-    </div>
+    
+    <ColorPicker />
 </section>
 
 <style>
@@ -138,23 +134,3 @@ const locate = getI18N({ currentLocale });
     }
         
 </style>
-
-<script>
-    const root = document.documentElement;
-    const pickerColorAccent = document.querySelector(".color-picker-accent") as HTMLInputElement
-    const resetColor = document.querySelector(".reset-color")
-    const initColor = pickerColorAccent.getAttribute("value") as string
-
-    pickerColorAccent.addEventListener("input", (e) => {
-        if(e.target instanceof HTMLInputElement) {
-            pickerColorAccent.setAttribute("value", e.target.value)
-            root.style.setProperty("--accent", e.target.value)
-        }
-    }, { passive: true })
-
-    resetColor?.addEventListener("click", () => {
-        pickerColorAccent.setAttribute("value", initColor)
-        pickerColorAccent.value = initColor;
-        root.style.removeProperty("--accent")
-    }, { passive: true })
-</script>
