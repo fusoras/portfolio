@@ -69,7 +69,7 @@ const author = "FuSoraS"
 
 	:root {
 		--font-content: system-ui, sans-serif;
-		--accent: hsl(145deg 60% 40%);
+		--accent: var(--clrp-accent, hsl(145deg 60% 40%));
 		--accent-lighter: hsl(from var(--accent) h calc(s + 10) calc(l + 15));
 		--accent-dark: hsl(from var(--accent) h s calc(l - 10));
 		--accent-secondary: hsl(313.88deg 60.2% 39.41%);
@@ -99,7 +99,7 @@ const author = "FuSoraS"
 		}
 
 		&[data-theme="light"] {
-			--accent: hsl(144.83deg 55.24% 41.18%);
+			--accent: var(--clrp-accent, hsl(144.83deg 55.24% 41.18%));
 			--accent-lighter: hsl(from var(--accent) h calc(s + 30) calc(l - 10));
 			--accent-secondary: hsl(302.88deg 63.45% 38.63%);
 			--clr-base: hsl(0deg 0% 100%);
