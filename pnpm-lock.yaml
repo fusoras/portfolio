@@ -33,7 +33,7 @@ importers:
         specifier: 3.9.6
         version: 3.9.6
       prettier-plugin-astro:
-        specifier: ^0.14.1
+        specifier: 0.14.1
         version: 0.14.1
       stylelint:
         specifier: 17.9.1
@@ -45,7 +45,7 @@ importers:
         specifier: 40.0.0
         version: 40.0.0(stylelint@17.9.1(supports-color@10.2.2)(typescript@5.9.3))
       typescript:
-        specifier: ^5.9.3
+        specifier: 5.9.3
         version: 5.9.3
       vite-plugin-supersvg:
         specifier: 0.0.7
