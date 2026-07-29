@@ -23,7 +23,69 @@
     "unicorn/prefer-module": "error",
     "typescript/no-var-requires": "error",
     "unicorn/prefer-ternary": "error",
-    "unicorn/no-static-only-class": "error"
+    "unicorn/no-static-only-class": "error",
+    "unicorn/prefer-global-this": "error",
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    "new-cap": [
+      "error",
+      {
+        "newIsCap": true,
+        "capIsNew": false,
+        "properties": true
+      }
+    ],
+    "no-array-constructor": "error",
+    "no-caller": "error",
+    "no-case-declarations": "error",
+    "no-cond-assign": "error",
+    "no-debugger": "error",
+    "no-extend-native": "error",
+    "no-fallthrough": "error",
+    "no-global-assign": "error",
+    "no-iterator": "error",
+    "no-labels": [
+      "error",
+      {
+        "allowLoop": false,
+        "allowSwitch": false
+      }
+    ],
+    "no-lone-blocks": "error",
+    "no-loss-of-precision": "error",
+    "no-misleading-character-class": "error",
+    "no-prototype-builtins": "error",
+    "no-useless-catch": "error",
+    "no-new": "error",
+    "no-new-func": "error",
+    "no-object-constructor": "error",
+    "no-new-wrappers": "error",
+    "no-proto": "error",
+    "no-redeclare": "error",
+    "no-self-assign": [
+      "error",
+      {
+        "props": true
+      }
+    ],
+    "no-self-compare": "error",
+    "no-sequences": "error",
+    "no-shadow-restricted-names": "error",
+    "no-template-curly-in-string": "error",
+    "no-unmodified-loop-condition": "error",
+    "no-unneeded-ternary": [
+      "error",
+      {
+        "defaultAssignment": false
+      }
+    ],
+    "no-unsafe-finally": "error",
+    "no-unsafe-negation": "error"
   },
   "env": {
     "builtin": true

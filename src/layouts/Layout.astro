@@ -209,22 +209,22 @@ const author = "FuSoraS"
 	const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll("nav a");
 
-	window.onscroll = () => {
+	globalThis.addEventListener('scroll', () => {
 		sections.forEach((sect) => {
-			let top = window.scrollY;
-			let offset = sect.offsetTop;
-			let height = sect.offsetHeight;
-			let id = sect.getAttribute("id");
+			const top = globalThis.scrollY;
+			const offset = sect.offsetTop;
+			const height = sect.offsetHeight;
+			const id = sect.getAttribute("id");
 
 			if (top >= offset && top < offset + height) {
 				navLinks.forEach((links) => {
 					links.classList.remove("active");
-					const activeLink = document.querySelector("nav a[href*=" + id + "]");
+					const activeLink = document.querySelector(`nav a[href*=${  id  }]`);
 					if (activeLink) {
 						activeLink.classList.add("active");
 					}
 				});
 			}
 		});
-	};
+	});
 </script>

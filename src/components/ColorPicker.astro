@@ -76,13 +76,15 @@
     init() {
       const pickerColorAccent = this.querySelector("[data-colorpicker]");
       const initColor = pickerColorAccent?.getAttribute("value") || "#000";
-      let customProperty = pickerColorAccent?.dataset.customProperty;
 
-      if (customProperty == null || customProperty == "") {
-        customProperty = "--clrp-accent";
-      }
       if (pickerColorAccent instanceof HTMLInputElement) {
-        pickerColorAccent?.addEventListener(
+        let { customProperty } = pickerColorAccent.dataset;
+
+        if (customProperty == null || customProperty === "") {
+          customProperty = "--clrp-accent";
+        }
+
+        pickerColorAccent.addEventListener(
           "input",
           (e) => {
             if (e.target instanceof HTMLInputElement) {
@@ -98,7 +100,7 @@
         resetColor?.addEventListener(
           "click",
           () => {
-            pickerColorAccent?.setAttribute("value", initColor);
+            pickerColorAccent.setAttribute("value", initColor);
             pickerColorAccent.value = initColor;
             root.style.removeProperty(`${customProperty}`);
           },
