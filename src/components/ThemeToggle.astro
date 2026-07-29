@@ -47,16 +47,16 @@ const { className } = Astro.props
   const element = document.documentElement;
 
   if(theme) {
-    element.setAttribute("data-theme", theme);
+    element.dataset.theme = theme;
   }
 
   const applyTheme = (nextTheme: string) => {
-    element.setAttribute("data-theme", nextTheme);
+    element.dataset.theme = nextTheme;
     localStorage.setItem("theme", nextTheme);
   };
 
   const handleToggleClick = () => {
-    const nextTheme = element.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    const nextTheme = element.dataset.theme === "dark" ? "light" : "dark";
 
     const switchTheme = () => applyTheme(nextTheme);
 

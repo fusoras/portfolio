@@ -1,25 +1,31 @@
 {
   "name": "portafolio",
-  "type": "module",
   "version": "1.0.1",
+  "type": "module",
   "scripts": {
     "dev": "portless run astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
   },
   "dependencies": {
     "@fontsource/lato": "5.2.6",
     "@tailwindcss/vite": "4.2.4",
     "astro": "6.1.9"
   },
-  "packageManager": "pnpm@11.17.0+sha512.cca3cea332ad254bb84145f966d19f4879615210346fc92c79a047f23a0d7b3cca3c3792f0076ba1f1831d277efbcf0a9119b31a9a60eca7fb3d6231f331ef72",
   "devDependencies": {
     "lightningcss": "1.32.0",
+    "oxfmt": "^0.60.0",
+    "oxlint": "^1.75.0",
     "portless": "0.15.4",
     "stylelint": "17.9.1",
     "stylelint-config-html": "1.1.0",
     "stylelint-config-standard": "40.0.0",
     "vite-plugin-supersvg": "0.0.7"
-  }
+  },
+  "packageManager": "pnpm@11.17.0+sha512.cca3cea332ad254bb84145f966d19f4879615210346fc92c79a047f23a0d7b3cca3c3792f0076ba1f1831d277efbcf0a9119b31a9a60eca7fb3d6231f331ef72"
 }

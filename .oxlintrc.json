@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "unicorn/prefer-query-selector": "error",
+    "unicorn/prefer-dom-node-text-content": "error",
+    "unicorn/prefer-dom-node-append": "error",
+    "unicorn/prefer-dom-node-remove": "error",
+    "unicorn/prefer-dom-node-dataset": "error",
+    "unicorn/prefer-classlist-toggle": "error",
+    "unicorn/prefer-single-call": "error",
+    "unicorn/prefer-add-event-listener": "error",
+    "prefer-const": "error",
+    "no-var": "error",
+    "prefer-template": "error",
+    "object-shorthand": "error",
+    "prefer-destructuring": "error",
+    "prefer-exponentiation-operator": "error",
+    "promise/catch-or-return": "error",
+    "unicorn/prefer-module": "error",
+    "typescript/no-var-requires": "error",
+    "unicorn/prefer-ternary": "error",
+    "unicorn/no-static-only-class": "error"
+  },
+  "env": {
+    "builtin": true
+  }
+}

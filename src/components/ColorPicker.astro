@@ -76,9 +76,7 @@
     init() {
       const pickerColorAccent = this.querySelector("[data-colorpicker]");
       const initColor = pickerColorAccent?.getAttribute("value") || "#000";
-      let customProperty = pickerColorAccent?.getAttribute(
-        "data-custom-property",
-      );
+      let customProperty = pickerColorAccent?.dataset.customProperty;
 
       if (customProperty == null || customProperty == "") {
         customProperty = "--clrp-accent";
