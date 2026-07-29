@@ -4,12 +4,17 @@
     "stylelint-config-html",
     "stylelint-config-html/astro"
   ],
-  "ignoreFiles": [
-    "**/*.json",
-    "**/*.ts",
-    "**/assets/**"
-  ],
+  "overrides": [{ "files": ["**/*.css", "**/.astro"] }],
+  "ignorePath": ".gitignore",
   "rules": {
+    "selector-nested-pattern": "^&",
+    "color-named": "never",
+    "color-function-notation": "modern",
+    "function-disallowed-list": ["rgba", "hsla"],
+    "function-name-case": "lower",
+    "function-url-quotes": "always",
+    "value-keyword-case": "lower",
+    "declaration-no-important": true,
     "selector-pseudo-class-no-unknown": [
       true,
       {
