@@ -1,56 +1,59 @@
 ---
-import IconCopy from "@/components/icons/IconCopy.astro";
-const mailText = "developer.fusoras@gmail.com";
-import { getI18N } from "@/i18n/index.ts"
+import IconCopy from '@/components/icons/IconCopy.astro'
+const mailText = 'developer.fusoras@gmail.com'
+import { getI18N } from '@/i18n/index.ts'
 
 const { currentLocale } = Astro
-const locate = getI18N({ currentLocale });
+const locate = getI18N({ currentLocale })
 ---
 
-<label class="mail" translate="no">{mailText}
+<label class="mail" translate="no"
+  >{mailText}
   <button class="btn-copy" title={locate.BTN_COPY}>
     <IconCopy />
   </button>
 </label>
 
 <style>
-    .mail {
-        margin-left: .2rem;
-        cursor: pointer;
+  .mail {
+    margin-left: 0.2rem;
+    cursor: pointer;
+  }
+
+  .btn-copy {
+    padding: 6px 5px;
+    background-color: light-dark(#cfcfcf, #4d4d4d);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition:
+      background-color,
+      scale 0.1s ease;
+
+    &:active,
+    .mail:active & {
+      background-color: var(--accent);
+      scale: 0.9;
     }
 
-    .btn-copy {
-        padding: 6px 5px;
-        background-color: light-dark(#cfcfcf,#4d4d4d);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color, scale .1s ease;
-
-        &:active,
-        .mail:active & {
-          background-color: var(--accent);
-            scale: 0.9;
-        }
-
-        & svg {
-            color: var(--clr-text-primary);
-            height: 15px;
-            width: 15px;
-        }
+    & svg {
+      color: var(--clr-text-primary);
+      height: 15px;
+      width: 15px;
     }
+  }
 </style>
 
 <script>
-  const btnCopy = document.querySelector(".btn-copy");
-  const textElement = document.querySelector(".mail");
+  const btnCopy = document.querySelector('.btn-copy')
+  const textElement = document.querySelector('.mail')
 
-  btnCopy?.addEventListener("click", async () => {
+  btnCopy?.addEventListener('click', async () => {
     try {
-      if(textElement)
-      await navigator.clipboard.writeText(textElement.textContent);
+      if (textElement)
+        await navigator.clipboard.writeText(textElement.textContent)
     } catch (err) {
-      console.error("Copy error:", err);
+      console.error('Copy error:', err)
     }
-  });
+  })
 </script>

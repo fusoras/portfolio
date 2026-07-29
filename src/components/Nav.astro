@@ -1,84 +1,89 @@
 ---
 const { currentLocale } = Astro
-import { getI18N } from "@/i18n/index.ts"
-const locate = getI18N({ currentLocale });
+import { getI18N } from '@/i18n/index.ts'
+const locate = getI18N({ currentLocale })
 
-import ThemeToggle from "@/components/ThemeToggle.astro";
+import ThemeToggle from '@/components/ThemeToggle.astro'
 ---
+
 <nav>
-    <div class="nav-items">
-        <a class="active" href="#home">{locate.NAV_HOME}</a>
-        <a href="#experience">{locate.NAV_EXPERIENCE}</a>
-        <a href="#projects">{locate.NAV_PROJECTS}</a>
-        <div class="line"></div>
-        <div class="toggle-wrap">
-            <ThemeToggle />
-        </div>
+  <div class="nav-items">
+    <a class="active" href="#home">{locate.NAV_HOME}</a>
+    <a href="#experience">{locate.NAV_EXPERIENCE}</a>
+    <a href="#projects">{locate.NAV_PROJECTS}</a>
+    <div class="line"></div>
+    <div class="toggle-wrap">
+      <ThemeToggle />
     </div>
+  </div>
 </nav>
 <style>
-    nav {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        display: flex;
-        justify-content: center;
-        width: 100%;
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
-        @media (pointer: coarse) {
-            /* On touch devices, sticky can interfere with the ThemeToggle animation. */
-            position: fixed;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .nav-items {
-            background-color: var(--clr-base-secondary);
-            display: flex;
-            place-items: center;
-            place-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            width: fit-content;
-            padding: 12px 20px;
-            border-radius: 15px 3px;
-            border-bottom: 2px solid var(--clr-surface);
-            border-right: 2px solid var(--clr-surface);
-            font-size: 1rem;
-            font-weight: bold;
-            animation: animate-header linear both;
-            animation-timeline: scroll(root);
-            animation-range: 0 200px;
-
-            & a {
-                transition: color 0.2s ease-in-out;
-            }
-
-            .active,
-            a:hover {
-                color: var(--accent);
-            }
-
-            & .line {
-                height: 30px;
-                width: 2px;
-                background-color: var(--clr-surface);
-                border-radius: 2px;
-            }
-
-            @media (width <= 430px) {
-                .toggle-wrap {display: none;}
-
-                .line {display: none;}
-            }
-        }
+    @media (pointer: coarse) {
+      /* On touch devices, sticky can interfere with the ThemeToggle animation. */
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    @keyframes animate-header {
-        to {
-            background-color: hsl(from var(--clr-base) h s l / 60%);
-            backdrop-filter: blur(4px);
-            border-radius: 0 3px 15px;
+    .nav-items {
+      background-color: var(--clr-base-secondary);
+      display: flex;
+      place-items: center;
+      place-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      width: fit-content;
+      padding: 12px 20px;
+      border-radius: 15px 3px;
+      border-bottom: 2px solid var(--clr-surface);
+      border-right: 2px solid var(--clr-surface);
+      font-size: 1rem;
+      font-weight: bold;
+      animation: animate-header linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 200px;
+
+      & a {
+        transition: color 0.2s ease-in-out;
+      }
+
+      .active,
+      a:hover {
+        color: var(--accent);
+      }
+
+      & .line {
+        height: 30px;
+        width: 2px;
+        background-color: var(--clr-surface);
+        border-radius: 2px;
+      }
+
+      @media (width <= 430px) {
+        .toggle-wrap {
+          display: none;
         }
+
+        .line {
+          display: none;
+        }
+      }
     }
+  }
+
+  @keyframes animate-header {
+    to {
+      background-color: hsl(from var(--clr-base) h s l / 60%);
+      backdrop-filter: blur(4px);
+      border-radius: 0 3px 15px;
+    }
+  }
 </style>

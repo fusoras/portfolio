@@ -1,115 +1,128 @@
 ---
-import ThemeToggle from "@/components/ThemeToggle.astro";
-import ColorPicker from "@/components/ColorPicker.astro";
-import { getI18N } from "@/i18n/index.ts"
+import ThemeToggle from '@/components/ThemeToggle.astro'
+import ColorPicker from '@/components/ColorPicker.astro'
+import { getI18N } from '@/i18n/index.ts'
 
 const { currentLocale } = Astro
-const locate = getI18N({ currentLocale });
+const locate = getI18N({ currentLocale })
 ---
 
 <button popovertarget="settings" aria-label="Abrir configuraciónes">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-settings" viewBox="0 0 24 24"><path fill="none" stroke="none" d="M0 0h24v24H0z"/><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37 1 .608 2.296.07 2.572-1.065"/><path d="M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0"/></svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    class="icon icon-tabler icons-tabler-outline icon-tabler-settings"
+    viewBox="0 0 24 24"
+    ><path fill="none" stroke="none" d="M0 0h24v24H0z"></path><path
+      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37 1 .608 2.296.07 2.572-1.065"
+    ></path><path d="M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0"></path></svg
+  >
 </button>
 
 <section popover id="settings" class="modal-settings">
-    <div class="selector-theme-toggle">
-        <p>{locate.THEME_TITLE}:</p>
-       <ThemeToggle />
-    </div>
+  <div class="selector-theme-toggle">
+    <p>{locate.THEME_TITLE}:</p>
+    <ThemeToggle />
+  </div>
 
-    <div class="line"></div>
-    
-    <ColorPicker />
+  <div class="line"></div>
+
+  <ColorPicker />
 </section>
 
 <style>
-    button[popovertarget] {
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        border-radius: 100%;
-        border: solid 2px var(--accent);
-        padding: .8em;
-        background-color: var(--clr-base-secondary);
-        display: flex;
+  button[popovertarget] {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 100%;
+    border: solid 2px var(--accent);
+    padding: 0.8em;
+    background-color: var(--clr-base-secondary);
+    display: flex;
 
-        &:active {
-            background-color: var(--accent);
-            color: var(--clr-base);
-        }
-
-        & svg {
-            --size: 25px;
-            
-            width: var(--size);
-            height: var(--size);
-        }
+    &:active {
+      background-color: var(--accent);
+      color: var(--clr-base);
     }
 
+    & svg {
+      --size: 25px;
+
+      width: var(--size);
+      height: var(--size);
+    }
+  }
+
+  .modal-settings:popover-open {
+    --left-to-right-animation: -10px 0;
+    --left-to-right-animation-duration: 250ms;
+
+    display: grid;
+    inset: unset;
+    bottom: 65px;
+    right: 5px;
+    padding: 1em;
+    background-color: var(--clr-base);
+    border: solid 2px var(--clr-base-secondary);
+    border-radius: 12px;
+    gap: 1em;
+    transition: opacity 150ms ease-in;
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+
+    .selector-theme-toggle {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1em;
+      transition: translate var(--left-to-right-animation-duration) ease-in-out;
+
+      @starting-style {
+        translate: var(--left-to-right-animation);
+      }
+
+      & p {
+        margin: 0;
+      }
+    }
+
+    .line {
+      border: solid 1px var(--clr-text-primary);
+    }
+
+    & .selector-accent {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: translate var(--left-to-right-animation-duration) ease-in-out;
+
+      @starting-style {
+        translate: var(--left-to-right-animation);
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
     .modal-settings:popover-open {
-        --left-to-right-animation: -10px 0;
-        --left-to-right-animation-duration: 250ms;
+      transition: none;
 
-        display: grid;
-        inset: unset;
-        bottom: 65px;
-        right: 5px;
-        padding: 1em;
-        background-color: var(--clr-base);
-        border: solid 2px var(--clr-base-secondary);
-        border-radius: 12px;
-        gap: 1em;
-        transition: opacity 150ms ease-in;
-        opacity: 1;
+      .selector-theme-toggle {
+        transition: none;
+      }
 
-	    @starting-style {
-            opacity: 0;
-        }
-
-        .selector-theme-toggle {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 1em;
-            transition: translate var(--left-to-right-animation-duration) ease-in-out;
-
-            @starting-style {
-                translate: var(--left-to-right-animation);
-            }
-
-            & p {
-                margin: 0;
-            }
-        }
-
-        .line {
-            border: solid 1px var(--clr-text-primary)
-        }
-
-        & .selector-accent {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: translate var(--left-to-right-animation-duration) ease-in-out;
-
-            @starting-style {
-                translate: var(--left-to-right-animation)
-            }
-        }
+      & .selector-accent {
+        transition: none;
+      }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-        .modal-settings:popover-open {
-            transition: none;
-
-            .selector-theme-toggle {
-                transition: none;
-            }
-
-            & .selector-accent {
-                transition: none;
-            }
-        }
-    }
-        
+  }
 </style>

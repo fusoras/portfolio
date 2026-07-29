@@ -54,61 +54,61 @@
 </style>
 
 <script>
-  const root = document.documentElement;
+  const root = document.documentElement
 
   class ColorPicker extends HTMLElement {
     constructor() {
-      super();
-      this.attachShadow({ mode: "open" });
+      super()
+      this.attachShadow({ mode: 'open' })
     }
 
     connectedCallback() {
-      this.render();
-      this.init();
+      this.render()
+      this.init()
     }
 
     render() {
       this.shadowRoot?.setHTMLUnsafe(/*html*/ `
             <slot></slot>
-        `);
+        `)
     }
 
     init() {
-      const pickerColorAccent = this.querySelector("[data-colorpicker]");
-      const initColor = pickerColorAccent?.getAttribute("value") || "#000";
+      const pickerColorAccent = this.querySelector('[data-colorpicker]')
+      const initColor = pickerColorAccent?.getAttribute('value') || '#000'
 
       if (pickerColorAccent instanceof HTMLInputElement) {
-        let { customProperty } = pickerColorAccent.dataset;
+        let { customProperty } = pickerColorAccent.dataset
 
-        if (customProperty == null || customProperty === "") {
-          customProperty = "--clrp-accent";
+        if (customProperty == null || customProperty === '') {
+          customProperty = '--clrp-accent'
         }
 
         pickerColorAccent.addEventListener(
-          "input",
-          (e) => {
+          'input',
+          e => {
             if (e.target instanceof HTMLInputElement) {
-              pickerColorAccent.setAttribute("value", e.target.value);
-              root.style.setProperty(`${customProperty}`, e.target.value);
+              pickerColorAccent.setAttribute('value', e.target.value)
+              root.style.setProperty(`${customProperty}`, e.target.value)
             }
           },
           { passive: true },
-        );
+        )
 
-        const resetColor = this.querySelector("[data-resetcolor]");
+        const resetColor = this.querySelector('[data-resetcolor]')
 
         resetColor?.addEventListener(
-          "click",
+          'click',
           () => {
-            pickerColorAccent.setAttribute("value", initColor);
-            pickerColorAccent.value = initColor;
-            root.style.removeProperty(`${customProperty}`);
+            pickerColorAccent.setAttribute('value', initColor)
+            pickerColorAccent.value = initColor
+            root.style.removeProperty(`${customProperty}`)
           },
           { passive: true },
-        );
+        )
       }
     }
   }
 
-  customElements.define("color-picker", ColorPicker);
+  customElements.define('color-picker', ColorPicker)
 </script>

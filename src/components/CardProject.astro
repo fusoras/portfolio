@@ -1,154 +1,171 @@
 ---
-import { getI18N } from "@/i18n/index.ts";
+import { getI18N } from '@/i18n/index.ts'
 
-const { currentLocale } = Astro;
-const locate = getI18N({ currentLocale });
-const { linkWeb, linkRepo, linkYt } = Astro.props;
+const { currentLocale } = Astro
+const locate = getI18N({ currentLocale })
+const { linkWeb, linkRepo, linkYt } = Astro.props
 ---
 
 <article class="ar-main">
-    <slot name="cover" />
-    <div class="container-content">
-        <slot />
-        <div class="container-link">
-            {
-                linkWeb && (
-                    <a
-                        href={linkWeb}
-                        class="ar-a btn-web"
-                        rel="noreferrer noopener"
-                        target="_blank"
-                    >
-                        {locate.PROJECTS.CARD.BTN_WEB}
-                    </a>
-                )
-            }
-            {
-                linkRepo && (
-                    <a
-                        href={linkRepo}
-                        class="ar-a btn-code"
-                        rel="noreferrer noopener"
-                        target="_blank"
-                    >
-                        {locate.PROJECTS.CARD.BTN_CODE}
-                    </a>
-                )
-            }
-            {
-                linkYt && (
-                    <a
-                        href={linkYt}
-                        class="ar-a btn-demo"
-                        rel="noreferrer noopener"
-                        target="_blank"
-                    >
-                        {locate.PROJECTS.CARD.BTN_DEMO}
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"/><path fill="currentColor" d="M10 8.75v6.5c0 .6.67.96 1.17.63l4.9-3.25a.75.75 0 0 0 0-1.26l-4.9-3.25a.75.75 0 0 0-1.17.63"/></svg>
-
-                    </a>
-                )
-            }
-        </div>
+  <slot name="cover" />
+  <div class="container-content">
+    <slot />
+    <div class="container-link">
+      {
+        linkWeb && (
+          <a
+            href={linkWeb}
+            class="ar-a btn-web"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            {locate.PROJECTS.CARD.BTN_WEB}
+          </a>
+        )
+      }
+      {
+        linkRepo && (
+          <a
+            href={linkRepo}
+            class="ar-a btn-code"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            {locate.PROJECTS.CARD.BTN_CODE}
+          </a>
+        )
+      }
+      {
+        linkYt && (
+          <a
+            href={linkYt}
+            class="ar-a btn-demo"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            {locate.PROJECTS.CARD.BTN_DEMO}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <>
+                <path
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"
+                />
+                <path
+                  fill="currentColor"
+                  d="M10 8.75v6.5c0 .6.67.96 1.17.63l4.9-3.25a.75.75 0 0 0 0-1.26l-4.9-3.25a.75.75 0 0 0-1.17.63"
+                />
+              </>
+            </svg>
+          </a>
+        )
+      }
     </div>
+  </div>
 </article>
 
 <style>
-    .ar-main {
-        border: var(--border-surface);
-        border-radius: 15px;
-        width: 100%;
-        height: fit-content;
-        overflow: hidden;
-        transition: box-shadow 0.3s;
-        background-color: var(--clr-base);
-        animation: reveal linear both;
-        animation-timeline: view();
-        animation-range: entry 20% cover 30%;
+  .ar-main {
+    border: var(--border-surface);
+    border-radius: 15px;
+    width: 100%;
+    height: fit-content;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    background-color: var(--clr-base);
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 30%;
 
-        &:hover {
-            box-shadow: 0 10px 30px
-                light-dark(rgb(0 0 0 / 40%), rgb(255 255 255 / 40%));
-        }
+    &:hover {
+      box-shadow: 0 10px 30px
+        light-dark(rgb(0 0 0 / 40%), rgb(255 255 255 / 40%));
+    }
 
-        @media (prefers-reduced-motion: reduce) {
-            transition: 0.1s;
-            animation: none;
-        }
+    @media (prefers-reduced-motion: reduce) {
+      transition: 0.1s;
+      animation: none;
+    }
 
-        & .container-content {
-            padding: 0 20px 25px;
+    & .container-content {
+      padding: 0 20px 25px;
 
-            & .container-link {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                align-items: center;
+      & .container-link {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
 
-                & .ar-a {
-                    display: inline-block;
-                    text-decoration: none;
-                    color: #fff;
-                    font-weight: bold;
-                    padding: 10px 15px;
-                    box-sizing: border-box;
-                    transition: background-color 0.3s;
+        & .ar-a {
+          display: inline-block;
+          text-decoration: none;
+          color: #fff;
+          font-weight: bold;
+          padding: 10px 15px;
+          box-sizing: border-box;
+          transition: background-color 0.3s;
 
-                    &:active {
-                        scale: 0.95;
-                    }
-                    
-                    &.btn-web {
-                        background-color: var(--accent);
-                        border-radius: 10px;
+          &:active {
+            scale: 0.95;
+          }
 
-                        &:hover,
-                        &:active {
-                            background-color: var(--accent-dark);
-                        }
-                    }
+          &.btn-web {
+            background-color: var(--accent);
+            border-radius: 10px;
 
-                    &.btn-demo {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 4px;
-                        width: 100%;
-                        background-color: var(--accent-secondary);
-                        text-decoration: none;
-                        color: #fff;
-                        border-radius: 10px;
-                        font-weight: bold;
-                        padding: 10px 15px;
-                        box-sizing: border-box;
-                        transition: background-color 0.3s;
-
-                        &:hover,
-                        &:active {
-                            background-color: var(--accent-secondary-dark);
-                        }
-                    }
-
-                    &.btn-code {
-                        color: var(--clr-text-primary);
-                        background-color: initial;
-                    }
-                }
+            &:hover,
+            &:active {
+              background-color: var(--accent-dark);
             }
+          }
+
+          &.btn-demo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            width: 100%;
+            background-color: var(--accent-secondary);
+            text-decoration: none;
+            color: #fff;
+            border-radius: 10px;
+            font-weight: bold;
+            padding: 10px 15px;
+            box-sizing: border-box;
+            transition: background-color 0.3s;
+
+            &:hover,
+            &:active {
+              background-color: var(--accent-secondary-dark);
+            }
+          }
+
+          &.btn-code {
+            color: var(--clr-text-primary);
+            background-color: initial;
+          }
         }
+      }
+    }
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      translate: 0 100px;
+      scale: 0.8;
     }
 
-    @keyframes reveal {
-        from {
-            opacity: 0;
-            translate: 0 100px;
-            scale: 0.8;
-        }
-
-        to {
-            opacity: 1;
-            translate: 0 0;
-            scale: 1;
-        }
+    to {
+      opacity: 1;
+      translate: 0 0;
+      scale: 1;
     }
+  }
 </style>

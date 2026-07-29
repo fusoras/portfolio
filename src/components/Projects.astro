@@ -1,126 +1,144 @@
 ---
-import CardProject from "@/components/CardProject.astro";
-import demoPT from "@/assets/proyecto-titulacion-bg.webp";
-import fitBg from "@/assets/fit-bg.webp";
-import demoPTAvif from "@/assets/proyecto-titulacion-bg.avif";
-import fitBgAvif from "@/assets/fit.avif";
-import IconHtml from "@/components/icons/IconHtml.astro";
-import IconCss from "@/components/icons/IconCss.astro";
-import IconAstro from "@/components/icons/IconAstro.astro";
-import WebComponent from "@/components/icons/IconWebComponent.astro";
-import IconTailwind from "@/components/icons/IconTailwind.astro";
-import IconSvelte from "@/components/icons/IconSvelte.astro";
-import IconTypeScript from "@/components/icons/IconTypeScript.astro";
-import IconOpenRouter from "@/components/icons/IconOpenRouter.astro";
-import IconFirebase from "@/components/icons/IconFirebase.astro";
-import { ROUTES } from "@/config.ts";
-import { getI18N } from "@/i18n/index.ts"
+import CardProject from '@/components/CardProject.astro'
+import demoPT from '@/assets/proyecto-titulacion-bg.webp'
+import fitBg from '@/assets/fit-bg.webp'
+import demoPTAvif from '@/assets/proyecto-titulacion-bg.avif'
+import fitBgAvif from '@/assets/fit.avif'
+import IconHtml from '@/components/icons/IconHtml.astro'
+import IconCss from '@/components/icons/IconCss.astro'
+import IconAstro from '@/components/icons/IconAstro.astro'
+import WebComponent from '@/components/icons/IconWebComponent.astro'
+import IconTailwind from '@/components/icons/IconTailwind.astro'
+import IconSvelte from '@/components/icons/IconSvelte.astro'
+import IconTypeScript from '@/components/icons/IconTypeScript.astro'
+import IconOpenRouter from '@/components/icons/IconOpenRouter.astro'
+import IconFirebase from '@/components/icons/IconFirebase.astro'
+import { ROUTES } from '@/config.ts'
+import { getI18N } from '@/i18n/index.ts'
 
 const { currentLocale } = Astro
-const locate = getI18N({ currentLocale });
+const locate = getI18N({ currentLocale })
 ---
 
 <h2>{locate.PROJECTS_TITLE}</h2>
 
 <div class="container-projects">
-    <CardProject 
-        linkWeb={`${ROUTES.GITHUB_PAGES}/birthday-26`}
-        linkRepo={`${ROUTES.REPOSITORY}/birthday-26`}
+  <CardProject
+    linkWeb={`${ROUTES.GITHUB_PAGES}/birthday-26`}
+    linkRepo={`${ROUTES.REPOSITORY}/birthday-26`}
+  >
+    <video
+      slot="cover"
+      autoplay
+      muted
+      loop
+      poster="/imgs/happy-birthday.avif"
+      class="ar-main-cover"
+      title={locate.PROJECTS.HAPPY_BIRTHDAY_TITLE}
     >
-        <video slot="cover" autoplay muted loop poster="/imgs/happy-birthday.avif" class="ar-main-cover" title={locate.PROJECTS.HAPPY_BIRTHDAY_TITLE}>
-            <source src="/videos/hb-av1.mp4" type="video/mp4" />
-            <source src="/videos/hb-h264.mp4" type="video/mp4"/>
-        </video>
-        <h3>{locate.PROJECTS.HAPPY_BIRTHDAY_TITLE}</h3>
-        <div class="container-icons">
-            <IconAstro class="icon-languages" />
-            <IconTypeScript class="icon-languages" />
-            <IconTailwind class="icon-languages" />
-            <IconSvelte class="icon-languages" />
-        </div>
-        <p>
-            {locate.PROJECTS.HAPPY_BIRTHDAY_DESCRIPTION}
-        </p>
-    </CardProject>
-    <CardProject linkYt="https://youtu.be/U_7Vx_W1v9k">
-        <picture slot="cover">
-            <source srcset={demoPTAvif.src} type="image/avif" />
-            <source srcset={demoPT.src} type="image/webp" />
-            <img src={demoPT.src} alt="Proyecto de titulación mostrando interfaz inclusiva con modo oscuro y controles de accesibilidad" class="ar-main-cover" title={locate.PROJECTS.DEGREE_TITLE} />
-        </picture>
-        <h3>{locate.PROJECTS.DEGREE_TITLE}</h3>
-        <div class="container-icons">
-            <IconHtml />
-            <IconCss />
-            <IconOpenRouter />
-            <IconFirebase />
-        </div>
-        <p>
-            {locate.PROJECTS.DEGREE_DESCRIPTION}
-        </p>
-    </CardProject>
-    <CardProject
-        linkWeb={`${ROUTES.GITHUB_PAGES}/page-fake1/`}
-        linkRepo={`${ROUTES.REPOSITORY}/page-fake1`}
-    >
-        <picture slot="cover">
-            <source srcset={fitBgAvif.src} type="image/avif" />
-            <source srcset={fitBg.src} type="image/webp" />
-            <img src={fitBg.src} alt="FitZone Gym mostrando diseño responsivo y estilo moderno" class="ar-main-cover" title="FitZone Gym" />
-        </picture>
-        <h3>FitZone Gym</h3>
-        <div class="container-icons">
-            <IconHtml />
-            <IconCss />
-            <WebComponent />
-        </div>
+      <source src="/videos/hb-av1.mp4" type="video/mp4" />
+      <source src="/videos/hb-h264.mp4" type="video/mp4" />
+    </video>
+    <h3>{locate.PROJECTS.HAPPY_BIRTHDAY_TITLE}</h3>
+    <div class="container-icons">
+      <IconAstro class="icon-languages" />
+      <IconTypeScript class="icon-languages" />
+      <IconTailwind class="icon-languages" />
+      <IconSvelte class="icon-languages" />
+    </div>
+    <p>
+      {locate.PROJECTS.HAPPY_BIRTHDAY_DESCRIPTION}
+    </p>
+  </CardProject>
+  <CardProject linkYt="https://youtu.be/U_7Vx_W1v9k">
+    <picture slot="cover">
+      <source srcset={demoPTAvif.src} type="image/avif" />
+      <source srcset={demoPT.src} type="image/webp" />
+      <img
+        src={demoPT.src}
+        alt="Proyecto de titulación mostrando interfaz inclusiva con modo oscuro y controles de accesibilidad"
+        class="ar-main-cover"
+        title={locate.PROJECTS.DEGREE_TITLE}
+      />
+    </picture>
+    <h3>{locate.PROJECTS.DEGREE_TITLE}</h3>
+    <div class="container-icons">
+      <IconHtml />
+      <IconCss />
+      <IconOpenRouter />
+      <IconFirebase />
+    </div>
+    <p>
+      {locate.PROJECTS.DEGREE_DESCRIPTION}
+    </p>
+  </CardProject>
+  <CardProject
+    linkWeb={`${ROUTES.GITHUB_PAGES}/page-fake1/`}
+    linkRepo={`${ROUTES.REPOSITORY}/page-fake1`}
+  >
+    <picture slot="cover">
+      <source srcset={fitBgAvif.src} type="image/avif" />
+      <source srcset={fitBg.src} type="image/webp" />
+      <img
+        src={fitBg.src}
+        alt="FitZone Gym mostrando diseño responsivo y estilo moderno"
+        class="ar-main-cover"
+        title="FitZone Gym"
+      />
+    </picture>
+    <h3>FitZone Gym</h3>
+    <div class="container-icons">
+      <IconHtml />
+      <IconCss />
+      <WebComponent />
+    </div>
 
-        <p>
-            {locate.PROJECTS.FITZONE_GYM_DESCRIPTION}
-        </p>
-    </CardProject>
+    <p>
+      {locate.PROJECTS.FITZONE_GYM_DESCRIPTION}
+    </p>
+  </CardProject>
 </div>
 <style>
-    @custom-media --mobile (width <= 700px);
+  @custom-media --mobile (width <= 700px);
 
-    .container-projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-        gap: 20px;
+  .container-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
 
-        @media(--mobile){
-            gap: 30px;
-        }
-
-        & h3 {
-            text-align: center;
-            color: var(--accent-lighter);
-            font-weight: bold;
-        }
-
-        & p {
-            justify-self: center;
-            margin: 15px 0 30px;
-            text-wrap: pretty;
-        }
-
-        & .ar-main-cover {
-            display: block;
-            height: 200px;
-            width: 100%;
-            margin: auto;
-            object-fit: cover;
-            aspect-ratio: 16 / 9;
-        }
-
-        & .container-icons {
-            display: flex;
-            gap: 10px;
-
-            & svg {
-                height: 25px;
-                width: 25px;
-            }
-        }
+    @media (--mobile) {
+      gap: 30px;
     }
+
+    & h3 {
+      text-align: center;
+      color: var(--accent-lighter);
+      font-weight: bold;
+    }
+
+    & p {
+      justify-self: center;
+      margin: 15px 0 30px;
+      text-wrap: pretty;
+    }
+
+    & .ar-main-cover {
+      display: block;
+      height: 200px;
+      width: 100%;
+      margin: auto;
+      object-fit: cover;
+      aspect-ratio: 16 / 9;
+    }
+
+    & .container-icons {
+      display: flex;
+      gap: 10px;
+
+      & svg {
+        height: 25px;
+        width: 25px;
+      }
+    }
+  }
 </style>

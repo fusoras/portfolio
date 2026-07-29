@@ -1,230 +1,258 @@
 ---
-import { ROUTES } from "@/config.ts"
+import { ROUTES } from '@/config.ts'
 const { currentLocale } = Astro
 const { title, description, lang } = Astro.props
 const canonicalUrl = new URL(Astro.url.pathname, ROUTES.HOSTNAME).toString()
-const author = "FuSoraS"
+const author = 'FuSoraS'
 ---
+
 <!doctype html>
 <html lang={currentLocale}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>{title}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
 
-		<link rel="canonical" href={canonicalUrl} />
-		<link rel="alternate" hreflang="es" href={`${ROUTES.HOSTNAME}/`} />
-		<link rel="alternate" hreflang="en" href={`${ROUTES.HOSTNAME}/en/`} />
-		<link rel="alternate" hreflang="x-default" href={`${ROUTES.HOSTNAME}/`} />
-		<link rel="icon" href="/favicon-dark.svg" type="image/svg+xml">
-		<link rel="icon" href="/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
-		<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
-		<link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es" href={`${ROUTES.HOSTNAME}/`} />
+    <link rel="alternate" hreflang="en" href={`${ROUTES.HOSTNAME}/en/`} />
+    <link rel="alternate" hreflang="x-default" href={`${ROUTES.HOSTNAME}/`} />
+    <link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" />
+    <link
+      rel="icon"
+      href="/favicon-light.svg"
+      type="image/svg+xml"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link
+      rel="icon"
+      href="/favicon-192x192.png"
+      type="image/png"
+      sizes="192x192"
+    />
 
-		<meta name="google-site-verification" content="l0My55aihzJm_JtopsqJ5AvG-_KkYURzqQy3B03_UUE" />
+    <meta
+      name="google-site-verification"
+      content="l0My55aihzJm_JtopsqJ5AvG-_KkYURzqQy3B03_UUE"
+    />
 
-		<meta name="description" content={description}>
-		<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-		<meta name="author" content={author} />
-		<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
-		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <meta name="author" content={author} />
+    <meta
+      name="theme-color"
+      content="#1a1a1a"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
 
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:creator" content={author}/>
-		<meta name="twitter:site" content={author}/>
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description}/>
-		<meta name="twitter:image" content={`${ROUTES.HOSTNAME}/og.png`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content={author} />
+    <meta name="twitter:site" content={author} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${ROUTES.HOSTNAME}/og.png`} />
 
-		<meta property="og:title" content={title} />
-		<meta property="og:type" content="website" />
-		<meta property="og:image" content={`${ROUTES.HOSTNAME}/og.png`} />
-		<meta property="og:image:width" content="1200">
-		<meta property="og:image:height" content="630">
-		<meta property="og:description" content={description}>
-		<meta property="og:url" content={canonicalUrl}/>
-		<meta property="og:locale" content={lang} />
-		<meta property="og:site_name" content={title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${ROUTES.HOSTNAME}/og.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={lang} />
+    <meta property="og:site_name" content={title} />
 
-		<script type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "Person",
-			"name": "FuSoraS",
-			"url": ROUTES.HOSTNAME,
-			"jobTitle": "Developer",
-			"sameAs": [
-				`${ROUTES.REPOSITORY}`,
-				`${ROUTES.LINKEDIN}`
-			]
-		})} />
-
-		</head>
-	<body>
-		<slot />
-	</body>
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'FuSoraS',
+        url: ROUTES.HOSTNAME,
+        jobTitle: 'Developer',
+        sameAs: [`${ROUTES.REPOSITORY}`, `${ROUTES.LINKEDIN}`],
+      })}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style is:global>
-	@custom-media --mobile (width <= 700px);
+  @custom-media --mobile (width <= 700px);
 
-	:root {
-		--font-content: system-ui, sans-serif;
-		--accent: var(--clrp-accent, hsl(145deg 60% 40%));
-		--accent-lighter: hsl(from var(--accent) h calc(s + 10) calc(l + 15));
-		--accent-dark: hsl(from var(--accent) h s calc(l - 10));
-		--accent-secondary: hsl(313.88deg 60.2% 39.41%);
-		--accent-secondary-dark: hsl(302.88deg 63.45% 31.63%);
-		--clr-base: hsl(0deg 0% 10%);
-		--clr-base-secondary: hsl(from var(--clr-base) h s calc(l + 5));
-		--clr-text-primary: hsl(0deg 0% 100%);
-		--clr-surface: hsl(from var(--clr-text-primary) h s calc(l - 50));
-    	--border-surface: 1px solid hsl(from var(--clr-text-primary) h s calc(l - 80));
+  :root {
+    --font-content: system-ui, sans-serif;
+    --accent: var(--clrp-accent, hsl(145deg 60% 40%));
+    --accent-lighter: hsl(from var(--accent) h calc(s + 10) calc(l + 15));
+    --accent-dark: hsl(from var(--accent) h s calc(l - 10));
+    --accent-secondary: hsl(313.88deg 60.2% 39.41%);
+    --accent-secondary-dark: hsl(302.88deg 63.45% 31.63%);
+    --clr-base: hsl(0deg 0% 10%);
+    --clr-base-secondary: hsl(from var(--clr-base) h s calc(l + 5));
+    --clr-text-primary: hsl(0deg 0% 100%);
+    --clr-surface: hsl(from var(--clr-text-primary) h s calc(l - 50));
+    --border-surface: 1px solid
+      hsl(from var(--clr-text-primary) h s calc(l - 80));
 
-		color-scheme: light dark;
-		font-family: var(--font-content);
-		background-color: var(--clr-base);
-	}
+    color-scheme: light dark;
+    font-family: var(--font-content);
+    background-color: var(--clr-base);
+  }
 
-	html {
-		display: flex;
-		place-content: center;
-		scroll-behavior: smooth;
+  html {
+    display: flex;
+    place-content: center;
+    scroll-behavior: smooth;
 
-		@media (prefers-reduced-motion: reduce) {
-			scroll-behavior: auto;
-		}
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
+    }
 
-		&[data-theme="dark"] {
-			color-scheme: dark;
-		}
+    &[data-theme='dark'] {
+      color-scheme: dark;
+    }
 
-		&[data-theme="light"] {
-			--accent: var(--clrp-accent, hsl(144.83deg 55.24% 41.18%));
-			--accent-lighter: hsl(from var(--accent) h calc(s + 30) calc(l - 10));
-			--accent-secondary: hsl(302.88deg 63.45% 38.63%);
-			--clr-base: hsl(0deg 0% 100%);
-			--clr-text-primary: hsl(0deg 0% 10%);
-			--clr-surface: hsl(from var(--clr-text-primary) h s calc(l - 50));
-			--clr-base-secondary: hsl(from var(--clr-base) h s calc(l - 5));
-			--border-surface: 1px solid hsl(from var(--clr-text-primary) h s calc(l + 80));
+    &[data-theme='light'] {
+      --accent: var(--clrp-accent, hsl(144.83deg 55.24% 41.18%));
+      --accent-lighter: hsl(from var(--accent) h calc(s + 30) calc(l - 10));
+      --accent-secondary: hsl(302.88deg 63.45% 38.63%);
+      --clr-base: hsl(0deg 0% 100%);
+      --clr-text-primary: hsl(0deg 0% 10%);
+      --clr-surface: hsl(from var(--clr-text-primary) h s calc(l - 50));
+      --clr-base-secondary: hsl(from var(--clr-base) h s calc(l - 5));
+      --border-surface: 1px solid
+        hsl(from var(--clr-text-primary) h s calc(l + 80));
 
-			color-scheme: light;
-		}
-	}
+      color-scheme: light;
+    }
+  }
 
-	body {
-		margin: 0;
-		padding: clamp(16px, 8vw, 32px);
-		width: min(700px, 90%);
-		border-inline: var(--border-surface);
-	}
+  body {
+    margin: 0;
+    padding: clamp(16px, 8vw, 32px);
+    width: min(700px, 90%);
+    border-inline: var(--border-surface);
+  }
 
-	h1 {
-        font-size: 2.3rem;
+  h1 {
+    font-size: 2.3rem;
 
-		@media (--mobile) {
-			font-size: 2rem;
-		}
-	}
+    @media (--mobile) {
+      font-size: 2rem;
+    }
+  }
 
-	h2 {
-		font-size: 1.8rem;
-		font-weight: bold;
-		margin-bottom: 20px;
-		color: var(--clr-text-primary);
-	}
+  h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--clr-text-primary);
+  }
 
-	h3 {
-		font-size: 1.5rem;
-		font-weight: bold;
-	}
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 
-	strong {
-		color: var(--accent);
-	}
+  strong {
+    color: var(--accent);
+  }
 
-	a {
-		color: var(--clr-text-primary);
-		text-decoration: none;
-	}
-	
-	p {
-		text-wrap: pretty;
-		font-size: 1.25rem;
+  a {
+    color: var(--clr-text-primary);
+    text-decoration: none;
+  }
 
-		@media (--mobile) {font-size: 1rem;}
-	}
+  p {
+    text-wrap: pretty;
+    font-size: 1.25rem;
 
-	::view-transition-group(root) {
-		animation-duration: 0.5s;
-	}
-		
-	::view-transition-new(root) {
-		animation-name: reveal-light;
-		animation-fill-mode: both;
-	}
+    @media (--mobile) {
+      font-size: 1rem;
+    }
+  }
 
-	::view-transition-old(root),
-	.dark::view-transition-old(root) {
-		animation: none;
-		animation-fill-mode: both;
-		z-index: -1;
-	}
+  ::view-transition-group(root) {
+    animation-duration: 0.5s;
+  }
 
-	.dark::view-transition-new(root) {
-		animation-name: reveal-dark;
-		animation-fill-mode: both;
-	}
+  ::view-transition-new(root) {
+    animation-name: reveal-light;
+    animation-fill-mode: both;
+  }
 
-	@media (prefers-reduced-motion: reduce) {
-		::view-transition-group(root),
-		::view-transition-new(root),
-		::view-transition-old(root) {
-			animation: none;
-			animation-fill-mode: both;
-		}
-	}
+  ::view-transition-old(root),
+  .dark::view-transition-old(root) {
+    animation: none;
+    animation-fill-mode: both;
+    z-index: -1;
+  }
 
-	@keyframes reveal-dark {
-		from {
-			clip-path: polygon(50% -71%, -50% 71%, -50% 71%, 50% -71%);
-		}
+  .dark::view-transition-new(root) {
+    animation-name: reveal-dark;
+    animation-fill-mode: both;
+  }
 
-		to {
-			clip-path: polygon(50% -71%, -50% 71%, 50% 171%, 171% 50%);
-		}
-	}
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(root),
+    ::view-transition-new(root),
+    ::view-transition-old(root) {
+      animation: none;
+      animation-fill-mode: both;
+    }
+  }
 
-	@keyframes reveal-light {
-		from {
-			clip-path: polygon(171% 50%, 50% 171%, 50% 171%, 171% 50%);
-		}
+  @keyframes reveal-dark {
+    from {
+      clip-path: polygon(50% -71%, -50% 71%, -50% 71%, 50% -71%);
+    }
 
-		to {
-			clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
-		}
-	}
+    to {
+      clip-path: polygon(50% -71%, -50% 71%, 50% 171%, 171% 50%);
+    }
+  }
+
+  @keyframes reveal-light {
+    from {
+      clip-path: polygon(171% 50%, 50% 171%, 50% 171%, 171% 50%);
+    }
+
+    to {
+      clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
+    }
+  }
 </style>
 <script>
-	const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav a");
+  const sections = document.querySelectorAll('section')
+  const navLinks = document.querySelectorAll('nav a')
 
-	globalThis.addEventListener('scroll', () => {
-		sections.forEach((sect) => {
-			const top = globalThis.scrollY;
-			const offset = sect.offsetTop;
-			const height = sect.offsetHeight;
-			const id = sect.getAttribute("id");
+  globalThis.addEventListener('scroll', () => {
+    sections.forEach(sect => {
+      const top = globalThis.scrollY
+      const offset = sect.offsetTop
+      const height = sect.offsetHeight
+      const id = sect.getAttribute('id')
 
-			if (top >= offset && top < offset + height) {
-				navLinks.forEach((links) => {
-					links.classList.remove("active");
-					const activeLink = document.querySelector(`nav a[href*=${  id  }]`);
-					if (activeLink) {
-						activeLink.classList.add("active");
-					}
-				});
-			}
-		});
-	});
+      if (top >= offset && top < offset + height) {
+        navLinks.forEach(links => {
+          links.classList.remove('active')
+          const activeLink = document.querySelector(`nav a[href*=${id}]`)
+          if (activeLink) {
+            activeLink.classList.add('active')
+          }
+        })
+      }
+    })
+  })
 </script>

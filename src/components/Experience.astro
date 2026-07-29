@@ -1,43 +1,55 @@
 ---
-import CardEducation from "@/components/CardEducation.astro"
-import IconJob from "@/components/icons/IconJob.astro";
-import IconEducation from "@/components/icons/IconEducation.astro";
+import CardEducation from '@/components/CardEducation.astro'
+import IconJob from '@/components/icons/IconJob.astro'
+import IconEducation from '@/components/icons/IconEducation.astro'
 
-import { getI18N } from "@/i18n/index.ts"
+import { getI18N } from '@/i18n/index.ts'
 
 const { currentLocale } = Astro
-const locate = getI18N({ currentLocale });
+const locate = getI18N({ currentLocale })
 ---
-<h2>{locate.EXPERIENCE_TITLE} <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-flask"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 2a1 1 0 0 1 0 2v4.826l3.932 10.814l.034 .077a1.7 1.7 0 0 1 -.002 1.193l-.07 .162a1.7 1.7 0 0 1 -1.213 .911l-.181 .017h-11l-.181 -.017a1.7 1.7 0 0 1 -1.285 -2.266l.039 -.09l3.927 -10.804v-4.823a1 1 0 1 1 0 -2h6zm-2 2h-2v4h2v-4z" /></svg></h2>
-<CardEducation
-    title={locate.EXPERIENCE_PRACTICE_TITLE}
-    date={locate.EXPERIENCE_PRACTICE_DATE}
-    content={locate.EXPERIENCE_PRACTICE_DESCRIPTION}
->
-    <IconJob slot="icon" />
 
+<h2>
+  {locate.EXPERIENCE_TITLE}
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    class="icon icon-tabler icons-tabler-filled icon-tabler-flask"
+    ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+      d="M15 2a1 1 0 0 1 0 2v4.826l3.932 10.814l.034 .077a1.7 1.7 0 0 1 -.002 1.193l-.07 .162a1.7 1.7 0 0 1 -1.213 .911l-.181 .017h-11l-.181 -.017a1.7 1.7 0 0 1 -1.285 -2.266l.039 -.09l3.927 -10.804v-4.823a1 1 0 1 1 0 -2h6zm-2 2h-2v4h2v-4z"
+    ></path></svg
+  >
+</h2>
+<CardEducation
+  title={locate.EXPERIENCE_PRACTICE_TITLE}
+  date={locate.EXPERIENCE_PRACTICE_DATE}
+  content={locate.EXPERIENCE_PRACTICE_DESCRIPTION}
+>
+  <IconJob slot="icon" />
 </CardEducation>
 <CardEducation
-    title={locate.EXPERIENCE_EDUCATION_TITLE}
-    date={locate.EXPERIENCE_EDUCATION_DATE}
-    content={locate.EXPERIENCE_EDUCATION_DESCRIPTION}
+  title={locate.EXPERIENCE_EDUCATION_TITLE}
+  date={locate.EXPERIENCE_EDUCATION_DATE}
+  content={locate.EXPERIENCE_EDUCATION_DESCRIPTION}
 >
-    <IconEducation slot="icon" />
+  <IconEducation slot="icon" />
 </CardEducation>
 
 <style>
-    h2 {
-        display: flex;
-        align-items: center;
-    }
+  h2 {
+    display: flex;
+    align-items: center;
+  }
 
-    h2 svg {
-        --size: 24px;
+  h2 svg {
+    --size: 24px;
 
-        width: var(--size);
-        height: var(--size);
-        color: var(--accent);
-        margin-left: .5rem;
-    }
-
+    width: var(--size);
+    height: var(--size);
+    color: var(--accent);
+    margin-left: 0.5rem;
+  }
 </style>

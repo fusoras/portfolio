@@ -1,59 +1,60 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import Nav from "@/components/Nav.astro"
-import Header from "@/components/Header.astro"
+import Nav from '@/components/Nav.astro'
+import Header from '@/components/Header.astro'
 import AboutMe from '@/components/AboutMe.astro'
 import Experience from '@/components/Experience.astro'
 import Projects from '@/components/Projects.astro'
 import Tech from '@/components/Tech.astro'
-import Footer from "@/components/Footer.astro"
-import ButtonSeetings from "@/components/ButtonSettings.astro"
-import { getI18N } from "@/i18n/index.ts"
+import Footer from '@/components/Footer.astro'
+import ButtonSeetings from '@/components/ButtonSettings.astro'
+import { getI18N } from '@/i18n/index.ts'
 
 const { currentLocale } = Astro
-const locate = getI18N({ currentLocale });
+const locate = getI18N({ currentLocale })
 ---
+
 <Layout
-    title={locate.SEO_TITLE}
-    description={locate.SEO_DESCRIPTION}
-    lang={locate.SEO_LOCATE}
+  title={locate.SEO_TITLE}
+  description={locate.SEO_DESCRIPTION}
+  lang={locate.SEO_LOCATE}
 >
-    <Nav />
+  <Nav />
 
-    <main>
-        <section id="home">
-            <Header />
-        </section>
+  <main>
+    <section id="home">
+      <Header />
+    </section>
 
-        <section id="section-about-me">
-            <AboutMe />
-        </section>
+    <section id="section-about-me">
+      <AboutMe />
+    </section>
 
-        <section id="experience">
-            <Experience />
-        </section>
+    <section id="experience">
+      <Experience />
+    </section>
 
-        <section id="projects">
-            <Projects />
-        </section>
+    <section id="projects">
+      <Projects />
+    </section>
 
-        <section class="section-tech">
-            <Tech />
-        </section>
-    </main>
-    
-    <Footer />
+    <section class="section-tech">
+      <Tech />
+    </section>
+  </main>
 
-    <ButtonSeetings />
+  <Footer />
 
-    <style>
-        section:not(:first-of-type) {
-            padding-top: 30px;
-            margin-bottom: 2rem;
-        }
+  <ButtonSeetings />
 
-        #home {
-            padding-block: 6rem;
-        }
-    </style>
+  <style>
+    section:not(:first-of-type) {
+      padding-top: 30px;
+      margin-bottom: 2rem;
+    }
+
+    #home {
+      padding-block: 6rem;
+    }
+  </style>
 </Layout>

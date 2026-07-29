@@ -1,81 +1,85 @@
 ---
-import HeaderIcon from "@/components/HeaderIcon.astro";
-import IconLinkedin from "@/components/icons/IconLinkedin.astro";
-import IconMail from "@/components/icons/IconMail.astro";
-import IconGithub from "@/components/icons/IconGithub.astro";
-import BtnCopy from "@/components/BtnCopy.astro";
-import { ROUTES } from "@/config.ts";
-import { getI18N } from "@/i18n/index.ts"
+import HeaderIcon from '@/components/HeaderIcon.astro'
+import IconLinkedin from '@/components/icons/IconLinkedin.astro'
+import IconMail from '@/components/icons/IconMail.astro'
+import IconGithub from '@/components/icons/IconGithub.astro'
+import BtnCopy from '@/components/BtnCopy.astro'
+import { ROUTES } from '@/config.ts'
+import { getI18N } from '@/i18n/index.ts'
 
 const { currentLocale } = Astro
-const locate = getI18N({ currentLocale });
+const locate = getI18N({ currentLocale })
 ---
+
 <header>
-    <h1 translate="no">{locate.HEADER_TITLE}</h1>
-    <p>
-        {locate.HEADER_PARAGRAPH_1}
-    </p>
+  <h1 translate="no">{locate.HEADER_TITLE}</h1>
+  <p>
+    {locate.HEADER_PARAGRAPH_1}
+  </p>
 </header>
 <section class="sc-btn">
-    <HeaderIcon href="https://www.linkedin.com/in/fusoras">
-        <IconLinkedin />
-        Linkedin
-    </HeaderIcon>
-    <HeaderIcon href={ROUTES.REPOSITORY}>
-        <IconGithub />
-        Github
-    </HeaderIcon>
+  <HeaderIcon href="https://www.linkedin.com/in/fusoras">
+    <IconLinkedin />
+    Linkedin
+  </HeaderIcon>
+  <HeaderIcon href={ROUTES.REPOSITORY}>
+    <IconGithub />
+    Github
+  </HeaderIcon>
 </section>
 
 <section class="sc-mail">
-    <IconMail />
-    <BtnCopy />
+  <IconMail />
+  <BtnCopy />
 </section>
 <style>
-    header {
-        & h1 {
-            text-align: center;
-            font-weight: bold;
-            background-image: linear-gradient(to right, var(--accent), var(--accent-lighter));
-            color: transparent;
-            background-clip: text;
-        }
-
-        & p {
-            width: min(500px, 90%);
-            text-wrap: pretty;
-            margin: auto;
-            margin-bottom: 32px;
-        }
+  header {
+    & h1 {
+      text-align: center;
+      font-weight: bold;
+      background-image: linear-gradient(
+        to right,
+        var(--accent),
+        var(--accent-lighter)
+      );
+      color: transparent;
+      background-clip: text;
     }
 
-    .sc-btn {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        align-items: center;
-        flex-wrap: wrap;
-
-        & svg {
-            color: var(--clr-text-primary);
-            width: 22px;
-            height: 22px;
-            aspect-ratio: 1 / 1;
-        }
+    & p {
+      width: min(500px, 90%);
+      text-wrap: pretty;
+      margin: auto;
+      margin-bottom: 32px;
     }
+  }
 
-    .sc-mail {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
+  .sc-btn {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
 
-        & svg {
-            color: var(--clr-text-primary);
-            width: 25px;
-            height: 25px;
-        }
+    & svg {
+      color: var(--clr-text-primary);
+      width: 22px;
+      height: 22px;
+      aspect-ratio: 1 / 1;
     }
+  }
 
+  .sc-mail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    & svg {
+      color: var(--clr-text-primary);
+      width: 25px;
+      height: 25px;
+    }
+  }
 </style>

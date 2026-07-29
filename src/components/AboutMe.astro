@@ -1,24 +1,30 @@
 ---
-import { getI18N } from "@/i18n/index.ts"
+import { getI18N } from '@/i18n/index.ts'
 
 const { currentLocale } = Astro
-const locate = getI18N({ currentLocale });
+const locate = getI18N({ currentLocale })
 ---
+
 <h2 id="about-me">{locate.ABOUT_ME_TITLE}<span>.</span></h2>
 <p>
-    {locate.ABOUT_ME_PARAGRAPH_1} <strong>{locate.ABOUT_ME_PARAGRAPH_2}</strong> {locate.ABOUT_ME_PARAGRAPH_3} <strong>{locate.ABOUT_ME_PARAGRAPH_4}</strong>{locate.ABOUT_ME_PARAGRAPH_5}
+  {locate.ABOUT_ME_PARAGRAPH_1}
+  <strong>{locate.ABOUT_ME_PARAGRAPH_2}</strong>
+  {locate.ABOUT_ME_PARAGRAPH_3}
+  <strong>{locate.ABOUT_ME_PARAGRAPH_4}</strong>{locate.ABOUT_ME_PARAGRAPH_5}
 </p>
 <p>
-    {locate.ABOUT_ME_PARAGRAPH_6} <strong>{locate.ABOUT_ME_PARAGRAPH_7}</strong> {locate.ABOUT_ME_PARAGRAPH_8}
+  {locate.ABOUT_ME_PARAGRAPH_6}
+  <strong>{locate.ABOUT_ME_PARAGRAPH_7}</strong>
+  {locate.ABOUT_ME_PARAGRAPH_8}
 </p>
 
 <style>
-    p {
-        margin-block: 1lh;
-        margin-block: 1em;
-    }
+  p {
+    margin-block: 1lh;
+    margin-block: 1em;
+  }
 
-    span {
-        color: var(--accent);
-    }
+  span {
+    color: var(--accent);
+  }
 </style>
