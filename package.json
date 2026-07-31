@@ -15,7 +15,7 @@
   "dependencies": {
     "@fontsource/lato": "5.2.6",
     "@tailwindcss/vite": "4.2.4",
-    "astro": "6.1.9"
+    "astro": "6.4.8"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
