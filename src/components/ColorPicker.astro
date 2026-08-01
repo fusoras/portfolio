@@ -31,6 +31,12 @@
 </color-picker>
 
 <style>
+  .selector-accent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
   input {
     --size: 40px;
 
@@ -45,11 +51,17 @@
   .reset-color {
     background-color: transparent;
     border: none;
-    cursor: pointer;
+    color: color-mix(var(--clr-text-primary), transparent);
+    cursor: not-allowed;
 
     &:active {
       scale: 0.95;
     }
+  }
+
+  color-picker:has(input:not([value='#29a35c'])) .reset-color {
+    color: var(--clr-text-primary);
+    cursor: pointer;
   }
 </style>
 
