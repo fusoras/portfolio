@@ -38,7 +38,7 @@ const locate = getI18N({ currentLocale })
   }
 
   .btn-copy {
-    padding: 6px 5px;
+    padding: 5px 4px;
     background-color: light-dark(#cfcfcf, #4d4d4d);
     border: none;
     border-radius: 5px;
@@ -47,16 +47,17 @@ const locate = getI18N({ currentLocale })
       background-color,
       scale 0.1s ease;
 
-    &:active,
-    .mail:active & {
+    &:active {
       background-color: var(--accent);
       scale: 0.9;
     }
 
     & svg {
+      --size: 18px;
+
       color: var(--clr-text-primary);
-      height: 15px;
-      width: 15px;
+      height: var(--size);
+      width: var(--size);
     }
   }
 </style>
