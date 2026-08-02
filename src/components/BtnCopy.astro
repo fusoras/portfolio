@@ -1,5 +1,6 @@
 ---
 import IconCopy from '@/components/icons/IconCopy.astro'
+import IconMail from '@/components/icons/IconMail.astro'
 const mailText = 'developer.fusoras@gmail.com'
 import { getI18N } from '@/i18n/index.ts'
 
@@ -7,17 +8,33 @@ const { currentLocale } = Astro
 const locate = getI18N({ currentLocale })
 ---
 
-<label class="mail" translate="no"
-  >{mailText}
+<label class="mail" translate="no">
+  <IconMail />
+  <p>
+    {mailText}
+  </p>
   <button class="btn-copy" title={locate.BTN_COPY}>
     <IconCopy />
   </button>
 </label>
-
 <style>
   .mail {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     margin-left: 0.2rem;
     cursor: pointer;
+
+    & p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    & svg {
+      color: var(--clr-text-primary);
+      width: 25px;
+      height: 25px;
+    }
   }
 
   .btn-copy {

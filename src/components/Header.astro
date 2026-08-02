@@ -1,7 +1,6 @@
 ---
 import HeaderIcon from '@/components/HeaderIcon.astro'
 import IconLinkedin from '@/components/icons/IconLinkedin.astro'
-import IconMail from '@/components/icons/IconMail.astro'
 import IconGithub from '@/components/icons/IconGithub.astro'
 import BtnCopy from '@/components/BtnCopy.astro'
 import { ROUTES } from '@/config.ts'
@@ -29,7 +28,6 @@ const locate = getI18N({ currentLocale })
 </section>
 
 <section class="sc-mail">
-  <IconMail />
   <BtnCopy />
 </section>
 <style>
@@ -75,11 +73,5 @@ const locate = getI18N({ currentLocale })
     align-items: center;
     flex-wrap: wrap;
     margin-top: 20px;
-
-    & svg {
-      color: var(--clr-text-primary);
-      width: 25px;
-      height: 25px;
-    }
   }
 </style>
