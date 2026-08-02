@@ -99,17 +99,6 @@ const locate = getI18N({ currentLocale })
     & .line {
       border: solid 1px var(--clr-text-primary);
     }
-
-    & .selector-accent {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: translate var(--left-to-right-animation-duration) ease-in-out;
-
-      @starting-style {
-        translate: var(--left-to-right-animation);
-      }
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -33,8 +33,14 @@
 <style>
   .selector-accent {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    transition: translate calc(var(--left-to-right-animation-duration) + 50ms)
+      ease-in-out;
+
+    @starting-style {
+      translate: var(--left-to-right-animation);
+    }
   }
 
   input {
