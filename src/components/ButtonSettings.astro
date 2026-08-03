@@ -97,7 +97,8 @@ const locate = getI18N({ currentLocale })
     }
 
     & .line {
-      border: solid 1px var(--clr-text-primary);
+      border: solid 1px
+        color-mix(var(--clr-text-primary), var(--clr-base-secondary));
     }
   }
 
