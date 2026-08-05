@@ -1,10 +1,12 @@
-<color-picker>
+<color-picker data-custom-property="--clrp-accent">
   <div class="selector-accent">
     <input
       type="color"
       value="#29a35c"
       class="color-picker-accent"
       data-colorpicker
+      aria-label="Seleccionar color de acento"
+      title="Color de acento"
     />
     <button
       class="reset-color"
@@ -29,7 +31,6 @@
     </button>
   </div>
 </color-picker>
-
 <style>
   .selector-accent {
     display: flex;
@@ -65,66 +66,37 @@
     }
   }
 
-  color-picker:has(input:not([value='#29a35c'])) .reset-color {
+  color-picker.has-color .reset-color {
     color: var(--clr-text-primary);
     cursor: pointer;
   }
 </style>
-
 <script>
-  const root = document.documentElement
-
   class ColorPicker extends HTMLElement {
-    constructor() {
-      super()
-      this.attachShadow({ mode: 'open' })
-    }
+    root = document.documentElement
+    customProperty = this.dataset.customProperty ?? '--clrp-accent'
 
     connectedCallback() {
-      this.render()
       this.init()
     }
 
-    render() {
-      this.shadowRoot?.setHTMLUnsafe(/*html*/ `
-            <slot></slot>
-        `)
-    }
-
     init() {
-      const pickerColorAccent = this.querySelector('[data-colorpicker]')
-      const initColor = pickerColorAccent?.getAttribute('value') || '#000'
+      const colorInput = this.querySelector('[data-colorpicker]')
+      if (!(colorInput instanceof HTMLInputElement)) return
 
-      if (pickerColorAccent instanceof HTMLInputElement) {
-        let { customProperty } = pickerColorAccent.dataset
+      const defaultColor = colorInput.value
 
-        if (customProperty == null || customProperty === '') {
-          customProperty = '--clrp-accent'
-        }
+      colorInput.addEventListener('input', () => {
+        this.root.style.setProperty(this.customProperty, colorInput.value)
+        this.classList.toggle('has-color', colorInput.value !== defaultColor)
+      })
 
-        pickerColorAccent.addEventListener(
-          'input',
-          e => {
-            if (e.target instanceof HTMLInputElement) {
-              pickerColorAccent.setAttribute('value', e.target.value)
-              root.style.setProperty(`${customProperty}`, e.target.value)
-            }
-          },
-          { passive: true },
-        )
-
-        const resetColor = this.querySelector('[data-resetcolor]')
-
-        resetColor?.addEventListener(
-          'click',
-          () => {
-            pickerColorAccent.setAttribute('value', initColor)
-            pickerColorAccent.value = initColor
-            root.style.removeProperty(`${customProperty}`)
-          },
-          { passive: true },
-        )
-      }
+      const resetColor = this.querySelector('[data-resetcolor]')
+      resetColor?.addEventListener('click', () => {
+        colorInput.value = defaultColor
+        this.root.style.removeProperty(this.customProperty)
+        this.classList.remove('has-color')
+      })
     }
   }
 
