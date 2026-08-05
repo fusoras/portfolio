@@ -256,22 +256,26 @@ const ogImageAlt = 'FuSoraS — portafolio de desarrollador web frontend'
   const sections = document.querySelectorAll('section')
   const navLinks = document.querySelectorAll('nav a')
 
-  globalThis.addEventListener('scroll', () => {
-    sections.forEach(sect => {
-      const top = globalThis.scrollY
-      const offset = sect.offsetTop
-      const height = sect.offsetHeight
-      const id = sect.getAttribute('id')
+  globalThis.addEventListener(
+    'scroll',
+    () => {
+      sections.forEach(sect => {
+        const top = globalThis.scrollY
+        const offset = sect.offsetTop
+        const height = sect.offsetHeight
+        const id = sect.getAttribute('id')
 
-      if (top >= offset && top < offset + height) {
-        navLinks.forEach(links => {
-          links.classList.remove('active')
-          const activeLink = document.querySelector(`nav a[href*=${id}]`)
-          if (activeLink) {
-            activeLink.classList.add('active')
-          }
-        })
-      }
-    })
-  })
+        if (top >= offset && top < offset + height) {
+          navLinks.forEach(links => {
+            links.classList.remove('active')
+            const activeLink = document.querySelector(`nav a[href*=${id}]`)
+            if (activeLink) {
+              activeLink.classList.add('active')
+            }
+          })
+        }
+      })
+    },
+    { passive: true },
+  )
 </script>
