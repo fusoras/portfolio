@@ -26,3 +26,6 @@ pnpm-debug.log*
 .vscode/*
 !extensions.json
 !settings.json
+
+# codegraph
+.codegraph
