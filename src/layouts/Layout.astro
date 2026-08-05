@@ -88,6 +88,19 @@ const ogImageAlt = 'FuSoraS — portafolio de desarrollador web frontend'
         sameAs: [`${ROUTES.REPOSITORY}`, `${ROUTES.LINKEDIN}`],
       })}
     />
+    <script is:inline>
+      const currentTheme = globalThis.matchMedia(
+        '(prefers-color-scheme: light)',
+      ).matches
+        ? 'light'
+        : 'dark'
+      const tt = localStorage.getItem('theme')
+      const nextTheme = tt === 'dark' || tt === 'light' ? tt : currentTheme
+      document.documentElement.dataset.theme = nextTheme
+      if (tt !== 'dark' && tt !== 'light') {
+        localStorage.removeItem('theme')
+      }
+    </script>
   </head>
   <body>
     <slot />

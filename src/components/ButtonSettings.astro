@@ -1,5 +1,5 @@
 ---
-import ThemeToggle from '@/components/ThemeToggle.astro'
+import ToggleTheme from '@/components/ToggleTheme.astro'
 import ColorPicker from '@/components/ColorPicker.astro'
 import { getI18N } from '@/i18n/index.ts'
 
@@ -28,7 +28,7 @@ const locate = getI18N({ currentLocale })
 <section popover id="settings" class="modal-settings">
   <div class="selector-theme-toggle">
     <p>{locate.THEME_TITLE}:</p>
-    <ThemeToggle />
+    <ToggleTheme />
   </div>
 
   <div class="line"></div>

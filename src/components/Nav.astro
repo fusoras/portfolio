@@ -3,7 +3,7 @@ const { currentLocale } = Astro
 import { getI18N } from '@/i18n/index.ts'
 const locate = getI18N({ currentLocale })
 
-import ThemeToggle from '@/components/ThemeToggle.astro'
+import ToggleTheme from '@/components/ToggleTheme.astro'
 ---
 
 <nav>
@@ -13,7 +13,7 @@ import ThemeToggle from '@/components/ThemeToggle.astro'
     <a href="#projects">{locate.NAV_PROJECTS}</a>
     <div class="line"></div>
     <div class="toggle-wrap">
-      <ThemeToggle />
+      <ToggleTheme />
     </div>
   </div>
 </nav>
@@ -55,7 +55,7 @@ import ThemeToggle from '@/components/ThemeToggle.astro'
         transition: color 0.2s ease-in-out;
       }
 
-    & .active,
+      & .active,
       a:hover {
         color: var(--accent);
       }
