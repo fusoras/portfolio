@@ -253,24 +253,26 @@ const ogImageAlt = 'FuSoraS — portafolio de desarrollador web frontend'
   }
 </style>
 <script>
-  const sections = document.querySelectorAll('section')
-  const navLinks = document.querySelectorAll('nav a')
+  import { $, $$ } from '@/lib/dom'
+
+  const $sections = $$('section')
+  const $navLinks = $$('nav a')
 
   globalThis.addEventListener(
     'scroll',
     () => {
-      sections.forEach(sect => {
+      $sections.forEach($sect => {
         const top = globalThis.scrollY
-        const offset = sect.offsetTop
-        const height = sect.offsetHeight
-        const id = sect.getAttribute('id')
+        const offset = $sect.offsetTop
+        const height = $sect.offsetHeight
+        const id = $sect.getAttribute('id')
 
         if (top >= offset && top < offset + height) {
-          navLinks.forEach(links => {
-            links.classList.remove('active')
-            const activeLink = document.querySelector(`nav a[href*=${id}]`)
-            if (activeLink) {
-              activeLink.classList.add('active')
+          $navLinks.forEach($links => {
+            $links.classList.remove('active')
+            const $activeLink = $(`nav a[href*=${id}]`)
+            if ($activeLink) {
+              $activeLink.classList.add('active')
             }
           })
         }

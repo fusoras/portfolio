@@ -92,24 +92,26 @@ const locate = getI18N({ currentLocale })
 </style>
 
 <script>
-  const btnCopy = document.querySelector('.btn-copy')
-  const textElement = document.querySelector('.mail')
-  const tooltip = document.querySelector('.copy-tooltip')
+  import { $ } from '@/lib/dom.ts'
+
+  const $btnCopy = $('.btn-copy')
+  const $textElement = $('.mail')
+  const $tooltip = $('.copy-tooltip')
   let hideTimer
 
-  btnCopy?.addEventListener('click', async () => {
+  $btnCopy?.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(
-        textElement?.querySelector('p')?.textContent.trim() ?? '',
+        $textElement?.querySelector('p')?.textContent.trim() ?? '',
       )
     } catch (err) {
       console.error('Copy error:', err)
       return
     }
 
-    if (!tooltip) return
-    tooltip.classList.add('show')
+    if (!$tooltip) return
+    $tooltip.classList.add('show')
     clearTimeout(hideTimer)
-    hideTimer = setTimeout(() => tooltip.classList.remove('show'), 1000)
+    hideTimer = setTimeout(() => $tooltip.classList.remove('show'), 1000)
   })
 </script>

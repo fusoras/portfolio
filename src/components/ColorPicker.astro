@@ -73,7 +73,7 @@
 </style>
 <script>
   class ColorPicker extends HTMLElement {
-    root = document.documentElement
+    $root = document.documentElement
     customProperty = this.dataset.customProperty ?? '--clrp-accent'
 
     connectedCallback() {
@@ -81,20 +81,20 @@
     }
 
     init() {
-      const colorInput = this.querySelector('[data-colorpicker]')
-      if (!(colorInput instanceof HTMLInputElement)) return
+      const $colorInput = this.querySelector('[data-colorpicker]')
+      if (!($colorInput instanceof HTMLInputElement)) return
 
-      const defaultColor = colorInput.value
+      const defaultColor = $colorInput.value
 
-      colorInput.addEventListener('input', () => {
-        this.root.style.setProperty(this.customProperty, colorInput.value)
-        this.classList.toggle('has-color', colorInput.value !== defaultColor)
+      $colorInput.addEventListener('input', () => {
+        this.$root.style.setProperty(this.customProperty, $colorInput.value)
+        this.classList.toggle('has-color', $colorInput.value !== defaultColor)
       })
 
-      const resetColor = this.querySelector('[data-resetcolor]')
-      resetColor?.addEventListener('click', () => {
-        colorInput.value = defaultColor
-        this.root.style.removeProperty(this.customProperty)
+      const $resetColor = this.querySelector('[data-resetcolor]')
+      $resetColor?.addEventListener('click', () => {
+        $colorInput.value = defaultColor
+        this.$root.style.removeProperty(this.customProperty)
         this.classList.remove('has-color')
       })
     }
