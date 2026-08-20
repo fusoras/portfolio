@@ -111,22 +111,22 @@ const ogImageAlt = 'FuSoraS — portafolio de desarrollador web frontend'
   @custom-media --mobile (width <= 700px);
 
   :root {
-    --font-content: system-ui, sans-serif;
+    --sans: system-ui, sans-serif;
     --accent: var(--clrp-accent, hsl(145deg 60% 40%));
     --accent-lighter: hsl(from var(--accent) h calc(s + 10) calc(l + 15));
     --accent-dark: hsl(from var(--accent) h s calc(l - 10));
     --accent-secondary: hsl(313.88deg 60.2% 39.41%);
     --accent-secondary-dark: hsl(302.88deg 63.45% 31.63%);
-    --clr-base: hsl(0deg 0% 10%);
-    --clr-base-secondary: hsl(from var(--clr-base) h s calc(l + 5));
-    --clr-text-primary: hsl(0deg 0% 100%);
-    --clr-surface: hsl(from var(--clr-text-primary) h s calc(l - 50));
-    --border-surface: 1px solid
-      hsl(from var(--clr-text-primary) h s calc(l - 80));
+    --fg: hsl(0deg 0% 100%);
+    --bg: hsl(0deg 0% 10%);
+    --surface: hsl(from var(--bg) h s calc(l + 5));
+    --surface-dim: hsl(from var(--fg) h s calc(l - 50));
+    --border: 1px solid
+      hsl(from var(--fg) h s calc(l - 80));
 
     color-scheme: light dark;
-    font-family: var(--font-content);
-    background-color: var(--clr-base);
+    font-family: var(--sans);
+    background-color: var(--bg);
   }
 
   html {
@@ -146,12 +146,12 @@ const ogImageAlt = 'FuSoraS — portafolio de desarrollador web frontend'
       --accent: var(--clrp-accent, hsl(144.83deg 55.24% 41.18%));
       --accent-lighter: hsl(from var(--accent) h calc(s + 30) calc(l - 10));
       --accent-secondary: hsl(302.88deg 63.45% 38.63%);
-      --clr-base: hsl(0deg 0% 100%);
-      --clr-text-primary: hsl(0deg 0% 10%);
-      --clr-surface: hsl(from var(--clr-text-primary) h s calc(l - 50));
-      --clr-base-secondary: hsl(from var(--clr-base) h s calc(l - 5));
-      --border-surface: 1px solid
-        hsl(from var(--clr-text-primary) h s calc(l + 80));
+      --bg: hsl(0deg 0% 100%);
+      --fg: hsl(0deg 0% 10%);
+      --surface-dim: hsl(from var(--fg) h s calc(l - 50));
+      --surface: hsl(from var(--bg) h s calc(l - 5));
+      --border: 1px solid
+        hsl(from var(--fg) h s calc(l + 80));
 
       color-scheme: light;
     }
@@ -161,7 +161,7 @@ const ogImageAlt = 'FuSoraS — portafolio de desarrollador web frontend'
     margin: 0;
     padding: clamp(16px, 8vw, 32px);
     width: min(700px, 90%);
-    border-inline: var(--border-surface);
+    border-inline: var(--border);
   }
 
   h1 {
@@ -176,7 +176,7 @@ const ogImageAlt = 'FuSoraS — portafolio de desarrollador web frontend'
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--clr-text-primary);
+    color: var(--fg);
   }
 
   h3 {
@@ -189,7 +189,7 @@ const ogImageAlt = 'FuSoraS — portafolio de desarrollador web frontend'
   }
 
   a {
-    color: var(--clr-text-primary);
+    color: var(--fg);
     text-decoration: none;
   }
 

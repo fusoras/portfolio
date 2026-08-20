@@ -34,7 +34,7 @@ import ToggleTheme from '@/components/ToggleTheme.astro'
     }
 
     & .nav-items {
-      background-color: var(--clr-base-secondary);
+      background-color: var(--surface);
       display: flex;
       place-items: center;
       place-content: center;
@@ -43,8 +43,8 @@ import ToggleTheme from '@/components/ToggleTheme.astro'
       width: fit-content;
       padding: 12px 20px;
       border-radius: 15px 3px;
-      border-bottom: 2px solid var(--clr-surface);
-      border-right: 2px solid var(--clr-surface);
+      border-bottom: 2px solid var(--surface-dim);
+      border-right: 2px solid var(--surface-dim);
       font-size: 1rem;
       font-weight: bold;
       animation: animate-header linear both;
@@ -63,7 +63,7 @@ import ToggleTheme from '@/components/ToggleTheme.astro'
       & .line {
         height: 30px;
         width: 2px;
-        background-color: var(--clr-surface);
+        background-color: var(--surface-dim);
         border-radius: 2px;
       }
 
@@ -81,7 +81,7 @@ import ToggleTheme from '@/components/ToggleTheme.astro'
 
   @keyframes animate-header {
     to {
-      background-color: hsl(from var(--clr-base) h s l / 60%);
+      background-color: hsl(from var(--bg) h s l / 60%);
       backdrop-filter: blur(4px);
       border-radius: 0 3px 15px;
     }

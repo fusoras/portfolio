@@ -72,13 +72,13 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
 
 <style>
   .ar-main {
-    border: var(--border-surface);
+    border: var(--border);
     border-radius: 15px;
     width: 100%;
     height: fit-content;
     overflow: hidden;
     transition: box-shadow 0.3s;
-    background-color: var(--clr-base);
+    background-color: var(--bg);
     animation: reveal linear both;
     animation-timeline: view();
     animation-range: entry 20% cover 30%;
@@ -147,7 +147,7 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
           }
 
           &.btn-code {
-            color: var(--clr-text-primary);
+            color: var(--fg);
             background-color: initial;
           }
         }

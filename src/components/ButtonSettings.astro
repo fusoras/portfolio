@@ -44,12 +44,12 @@ const locate = getI18N({ currentLocale })
     border-radius: 100%;
     border: solid 2px var(--accent);
     padding: 0.8em;
-    background-color: var(--clr-base-secondary);
+    background-color: var(--surface);
     display: flex;
 
     &:active {
       background-color: var(--accent);
-      color: var(--clr-base);
+      color: var(--bg);
     }
 
     & svg {
@@ -69,8 +69,8 @@ const locate = getI18N({ currentLocale })
     bottom: 65px;
     right: 5px;
     padding: 1em;
-    background-color: var(--clr-base);
-    border: solid 2px var(--clr-base-secondary);
+    background-color: var(--bg);
+    border: solid 2px var(--surface);
     border-radius: 12px;
     gap: 1em;
     transition: opacity 150ms ease-in;
@@ -98,7 +98,7 @@ const locate = getI18N({ currentLocale })
 
     & .line {
       border: solid 1px
-        color-mix(var(--clr-text-primary), var(--clr-base-secondary));
+        color-mix(var(--fg), var(--surface));
     }
   }
 
