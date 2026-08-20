@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# generated svg sprites (vite-plugin-supersvg)
+public/assets/icons/
+
 # generated types
 .astro/
 

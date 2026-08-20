@@ -2,6 +2,9 @@
 dist/
 .output/
 
+# generated svg sprites (vite-plugin-supersvg)
+public/assets/icons/
+
 # dependencies
 node_modules/
 
