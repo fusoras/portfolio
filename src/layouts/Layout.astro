@@ -111,28 +111,29 @@ const ogImageAlt = 'FuSoraS — portafolio de desarrollador web frontend'
   @custom-media --mobile (width <= 700px);
 
   :root {
-    --sans: system-ui, sans-serif;
-    --accent: var(--clrp-accent, hsl(145deg 60% 40%));
+    --sans: ui-sans-serif, system-ui, sans-serif;
+    --accent: var(--clrp-accent, #30c06c);
     --accent-lighter: hsl(from var(--accent) h calc(s + 10) calc(l + 15));
     --accent-dark: hsl(from var(--accent) h s calc(l - 10));
     --accent-secondary: hsl(313.88deg 60.2% 39.41%);
     --accent-secondary-dark: hsl(302.88deg 63.45% 31.63%);
     --fg: hsl(0deg 0% 100%);
-    --bg: hsl(0deg 0% 10%);
+    --bg: #100f0f;
+    --muted: #ffffff0d;
     --surface: hsl(from var(--bg) h s calc(l + 5));
     --surface-dim: hsl(from var(--fg) h s calc(l - 50));
-    --border: 1px solid
-      hsl(from var(--fg) h s calc(l - 80));
+    --border: 1px solid hsl(from var(--fg) h s calc(l - 80));
 
     color-scheme: light dark;
     font-family: var(--sans);
-    background-color: var(--bg);
   }
 
   html {
     display: flex;
     place-content: center;
     scroll-behavior: smooth;
+    color: var(--fg);
+    background-color: var(--bg);
 
     @media (prefers-reduced-motion: reduce) {
       scroll-behavior: auto;
@@ -146,12 +147,12 @@ const ogImageAlt = 'FuSoraS — portafolio de desarrollador web frontend'
       --accent: var(--clrp-accent, hsl(144.83deg 55.24% 41.18%));
       --accent-lighter: hsl(from var(--accent) h calc(s + 30) calc(l - 10));
       --accent-secondary: hsl(302.88deg 63.45% 38.63%);
-      --bg: hsl(0deg 0% 100%);
+      --bg: #fffcf0;
       --fg: hsl(0deg 0% 10%);
+      --muted: #0000000d;
       --surface-dim: hsl(from var(--fg) h s calc(l - 50));
       --surface: hsl(from var(--bg) h s calc(l - 5));
-      --border: 1px solid
-        hsl(from var(--fg) h s calc(l + 80));
+      --border: 1px solid hsl(from var(--fg) h s calc(l + 80));
 
       color-scheme: light;
     }
