@@ -73,7 +73,7 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
 <style>
   .ar-main {
     border: 1px solid var(--muted);
-    border-radius: 15px;
+    border-radius: var(--radius-card);
     width: 100%;
     height: fit-content;
     overflow: hidden;
@@ -94,7 +94,7 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
     }
 
     & .container-content {
-      padding: 0 20px 25px;
+      padding: 0 var(--space-lg) var(--space-xl);
 
       & .container-link {
         display: flex;
@@ -107,7 +107,7 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
           text-decoration: none;
           color: #fff;
           font-weight: bold;
-          padding: 10px 15px;
+          padding: var(--space-sm) var(--space-md);
           box-sizing: border-box;
           transition: background-color 0.3s;
 
@@ -138,7 +138,7 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
             color: #fff;
             border-radius: var(--radius-tile);
             font-weight: bold;
-            padding: 10px 15px;
+            padding: var(--space-sm) var(--space-md);
             box-sizing: border-box;
             transition: background-color 0.3s;
 

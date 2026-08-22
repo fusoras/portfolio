@@ -104,10 +104,10 @@ const locate = getI18N({ currentLocale })
   .container-projects {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 20px;
+    gap: var(--space-lg);
 
     @media (--mobile) {
-      gap: 30px;
+      gap: var(--space-2xl);
     }
 
     & h3 {
@@ -118,7 +118,7 @@ const locate = getI18N({ currentLocale })
 
     & p {
       justify-self: center;
-      margin: 15px 0 30px;
+      margin: var(--space-md) 0 var(--space-2xl);
       text-wrap: pretty;
     }
 
@@ -133,11 +133,11 @@ const locate = getI18N({ currentLocale })
 
     & .container-icons {
       display: flex;
-      gap: 10px;
+      gap: var(--space-sm);
 
       & svg {
-        height: 25px;
-        width: 25px;
+        height: var(--icon-md);
+        width: var(--icon-md);
       }
     }
   }

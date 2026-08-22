@@ -48,20 +48,20 @@ const locate = getI18N({ currentLocale })
     width: min(500px, 90%);
     text-wrap: pretty;
     margin: auto;
-    margin-bottom: 32px;
+    margin-bottom: var(--space-2xl);
   }
 
 .sc-btn {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: var(--space-sm);
   align-items: center;
   flex-wrap: wrap;
 
   & svg {
     color: var(--fg);
-    width: 22px;
-    height: 22px;
+    width: var(--icon-md);
+    height: var(--icon-md);
     aspect-ratio: 1 / 1;
   }
 }
@@ -71,6 +71,6 @@ const locate = getI18N({ currentLocale })
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: var(--space-lg);
 }
 </style>

@@ -68,11 +68,11 @@ const locate = getI18N({ currentLocale })
     inset: unset;
     bottom: 65px;
     right: 5px;
-    padding: 1em;
+    padding: var(--space-md);
     background-color: var(--bg);
     border: solid 2px var(--muted);
     border-radius: var(--radius-tile);
-    gap: 1em;
+    gap: var(--space-md);
     transition: opacity 150ms ease-in;
     opacity: 1;
 
@@ -84,7 +84,7 @@ const locate = getI18N({ currentLocale })
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1em;
+      gap: var(--space-md);
       transition: translate var(--left-to-right-animation-duration) ease-in-out;
 
       @starting-style {
