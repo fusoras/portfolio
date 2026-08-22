@@ -72,7 +72,7 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
 
 <style>
   .ar-main {
-    border: var(--border);
+    border: 1px solid var(--muted);
     border-radius: 15px;
     width: 100%;
     height: fit-content;
@@ -126,6 +126,8 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
           }
 
           &.btn-demo {
+            --accent-secondary-dark: hsl(302.88deg 63.45% 31.63%);
+
             display: flex;
             justify-content: center;
             align-items: center;

@@ -31,47 +31,46 @@ const locate = getI18N({ currentLocale })
   <BtnCopy />
 </section>
 <style>
-  header {
-    & h1 {
-      text-align: center;
-      font-weight: bold;
-      background-image: linear-gradient(
-        to right,
-        var(--accent),
-        var(--accent-lighter)
-      );
-      color: transparent;
-      background-clip: text;
-    }
+  h1 {
+    --accent-lighter: light-dark(
+      hsl(145deg 90% 37.06%),
+      hsl(144.83deg 65.24% 56.18%)
+    );
 
-    & p {
-      width: min(500px, 90%);
-      text-wrap: pretty;
-      margin: auto;
-      margin-bottom: 32px;
-    }
+    text-align: center;
+    font-weight: bold;
+    background-image: linear-gradient(to right, var(--accent-lighter));
+    color: transparent;
+    background-clip: text;
   }
 
-  .sc-btn {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-
-    & svg {
-      color: var(--fg);
-      width: 22px;
-      height: 22px;
-      aspect-ratio: 1 / 1;
-    }
+  p {
+    width: min(500px, 90%);
+    text-wrap: pretty;
+    margin: auto;
+    margin-bottom: 32px;
   }
 
-  .sc-mail {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
+.sc-btn {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  & svg {
+    color: var(--fg);
+    width: 22px;
+    height: 22px;
+    aspect-ratio: 1 / 1;
   }
+}
+
+.sc-mail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
 </style>
