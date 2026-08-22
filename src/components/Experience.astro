@@ -41,7 +41,13 @@ const locate = getI18N({ currentLocale })
 <style>
   h2 {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+
+    @media (width <= 400px){
+      flex-direction: column-reverse;
+      text-align: center;
+    }
   }
 
   h2 svg {
