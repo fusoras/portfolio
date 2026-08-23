@@ -1,0 +1,87 @@
+---
+import { ROUTES } from '@/config.ts'
+
+const canonicalUrl = new URL(Astro.url.pathname, ROUTES.HOSTNAME).toString()
+const author = 'FuSoraS'
+const ogImage = `${ROUTES.HOSTNAME}/og.png`
+const ogImageAlt = 'FuSoraS — portafolio de desarrollador web frontend'
+
+const { title = 'FuSoraS', description = '', lang = 'es_ES' } = Astro.props
+---
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+
+<link rel="canonical" href={canonicalUrl} />
+<link rel="alternate" hreflang="es" href={`${ROUTES.HOSTNAME}/`} />
+<link rel="alternate" hreflang="en" href={`${ROUTES.HOSTNAME}/en/`} />
+<link rel="alternate" hreflang="x-default" href={`${ROUTES.HOSTNAME}/`} />
+<link rel="icon" href="/favicon-dark.svg" type="image/svg+xml" />
+<link
+  rel="icon"
+  href="/favicon-light.svg"
+  type="image/svg+xml"
+  media="(prefers-color-scheme: light)"
+/>
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link
+  rel="icon"
+  href="/favicon-192x192.png"
+  type="image/png"
+  sizes="192x192"
+/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<meta
+  name="google-site-verification"
+  content="l0My55aihzJm_JtopsqJ5AvG-_KkYURzqQy3B03_UUE"
+/>
+
+<meta name="description" content={description} />
+<meta
+  name="robots"
+  content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+/>
+<meta name="author" content={author} />
+<meta
+  name="theme-color"
+  content="#1a1a1a"
+  media="(prefers-color-scheme: dark)"
+/>
+<meta
+  name="theme-color"
+  content="#ffffff"
+  media="(prefers-color-scheme: light)"
+/>
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content={author} />
+<meta name="twitter:site" content={author} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={ogImageAlt} />
+
+<meta property="og:title" content={title} />
+<meta property="og:type" content="website" />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={ogImageAlt} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:locale" content={lang} />
+<meta property="og:site_name" content="FuSoraS" />
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'FuSoraS',
+    url: ROUTES.HOSTNAME,
+    jobTitle: 'Developer',
+    sameAs: [`${ROUTES.REPOSITORY}`, `${ROUTES.LINKEDIN}`],
+  })}
+/>
