@@ -5,6 +5,7 @@ const { currentLocale } = Astro
 
 const { title, description, lang } = Astro.props
 ---
+
 <!doctype html>
 <html lang={currentLocale}>
   <head>
@@ -21,6 +22,10 @@ const { title, description, lang } = Astro.props
       if (tt !== 'dark' && tt !== 'light') {
         localStorage.removeItem('theme')
       }
+    const s = localStorage.getItem("currentScale");
+		if (s && Number.isFinite(Number(s))) {
+			document.documentElement.style.setProperty("--root-font-size", `${s}px`);
+		}
     </script>
   </head>
   <body>

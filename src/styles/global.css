@@ -50,6 +50,7 @@
 
   color-scheme: light dark;
   font-family: var(--sans);
+  font-size: var(--root-font-size, 1rem);
 }
 
 html {
