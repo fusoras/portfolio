@@ -1,0 +1,167 @@
+---
+import { getI18N } from '@/i18n/index.ts'
+
+const { currentLocale } = Astro
+const locate = getI18N({ currentLocale })
+---
+
+<buttons-accessibility>
+  <button
+    data-a11y-action="increase-text"
+    aria-label={locate.A11Y_INCREASE_TEXT_ARIA}
+    title={locate.A11Y_INCREASE_TEXT_ARIA}
+  >
+    <svg width="24" height="24">
+      <use href="/assets/icons/buttons.svg#plus"></use>
+    </svg></button
+  >
+  <button
+    data-a11y-action="decrease-text"
+    aria-label={locate.A11Y_DECREASE_TEXT_ARIA}
+    title={locate.A11Y_DECREASE_TEXT_ARIA}
+  >
+    <svg width="24" height="24">
+      <use href="/assets/icons/buttons.svg#minus"></use>
+    </svg></button
+  >
+  <button
+    data-a11y-action="restore-text"
+    class="restore-text"
+    aria-label={locate.A11Y_RESTORE_TEXT_ARIA}
+    title={locate.A11Y_RESTORE_TEXT_ARIA}
+  >
+    <svg width="24" height="24">
+      <use href="/assets/icons/buttons.svg#reset"></use>
+    </svg>
+  </button>
+</buttons-accessibility>
+
+<style>
+  buttons-accessibility {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+
+    & button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    & .restore-text {
+      cursor: initial;
+      color: color-mix(var(--fg), transparent);
+    }
+  }
+
+  :root[style*='--root-font-size'] .restore-text {
+    cursor: pointer;
+    color: var(--fig);
+  }
+</style>
+
+<script>
+  class ButtonsAccessibility extends HTMLElement {
+    root = document.documentElement
+    #scaleDefault = 16
+    #minScaleDefault = 14
+    #maxScaleDefault = 18
+    #currentScale = this.#scaleDefault
+
+    static get observedAttributes() {
+      return ['no-disabled']
+    }
+
+    attributeChangedCallback() {
+      this.syncButtonsState()
+    }
+
+    connectedCallback() {
+      this.init()
+    }
+
+    init() {
+      const savedScale = localStorage.getItem('currentScale')
+      const savedReduceMotion = localStorage.getItem('reduceMotion')
+
+      const parsedScale = Number.parseFloat(savedScale ?? '')
+      if (Number.isFinite(parsedScale)) {
+        this.#currentScale = parsedScale
+        this.adjustFontSize(0)
+      }
+
+      this.root.classList.toggle('reduce-motion', savedReduceMotion === 'true')
+      this.syncButtonsState()
+      this.syncReduceMotionPressed()
+
+      this.addEventListener('click', ev => {
+        const target = ev.target instanceof Element ? ev.target : null
+        const getClosest = (selector = '') => target?.closest(selector)
+
+        const el = getClosest('[data-a11y-action]')
+        if (!(el instanceof HTMLElement)) return
+        const { a11yAction } = el.dataset
+
+        if (a11yAction === 'increase-text') this.adjustFontSize(1)
+        if (a11yAction === 'decrease-text') this.adjustFontSize(-1)
+
+        if (a11yAction === 'restore-text') {
+          this.#currentScale = this.#scaleDefault
+          localStorage.removeItem('currentScale')
+          this.root.style.removeProperty('--root-font-size')
+          this.syncButtonsState()
+        }
+
+        if (a11yAction === 'reduce-motion') {
+          this.root.classList.toggle('reduce-motion')
+          const isActive = this.root.classList.contains('reduce-motion')
+          localStorage.setItem('reduceMotion', String(isActive))
+          this.syncReduceMotionPressed()
+        }
+      })
+    }
+
+    adjustFontSize(step = 0) {
+      const minimum = this.#minScaleDefault
+      const maximum = this.#maxScaleDefault
+
+      this.#currentScale = Math.min(
+        Math.max(this.#currentScale + step, minimum),
+        maximum,
+      )
+
+      this.root.style.setProperty('--root-font-size', `${this.#currentScale}px`)
+      localStorage.setItem('currentScale', `${this.#currentScale}`)
+      this.syncButtonsState()
+    }
+
+    syncButtonsState() {
+      const noDisabled = this.hasAttribute('no-disabled')
+      if (!noDisabled) {
+        this.querySelector(
+          '[data-a11y-action="increase-text"]',
+        )?.toggleAttribute(
+          'disabled',
+          this.#currentScale === this.#maxScaleDefault,
+        )
+        this.querySelector(
+          '[data-a11y-action="decrease-text"]',
+        )?.toggleAttribute(
+          'disabled',
+          this.#currentScale === this.#minScaleDefault,
+        )
+      }
+    }
+
+    syncReduceMotionPressed() {
+      const isActive = this.root.classList.contains('reduce-motion')
+      this.querySelector('[data-a11y-action="reduce-motion"]')?.setAttribute(
+        'aria-pressed',
+        String(isActive),
+      )
+    }
+  }
+
+  customElements.define('buttons-accessibility', ButtonsAccessibility)
+</script>

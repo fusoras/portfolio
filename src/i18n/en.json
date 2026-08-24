@@ -40,5 +40,20 @@
     }
   },
   "OTHER_TECH_TITLE": "Other technologies",
-  "THEME_TITLE": "Theme"
+  "THEME_TITLE": "Theme",
+  "SETTINGS_OPEN_ARIA": "Open settings",
+  "FONT_SIZE_TITLE": "Text size",
+  "A11Y_INCREASE_TEXT_ARIA": "Increase text size",
+  "A11Y_DECREASE_TEXT_ARIA": "Decrease text size",
+  "A11Y_RESTORE_TEXT_ARIA": "Restore text size",
+  "THEME_TOGGLE_ARIA": "Change theme",
+  "COLOR_ACCENT_ARIA": "Select accent color",
+  "COLOR_ACCENT_TITLE": "Accent color",
+  "COLOR_RESET_ARIA": "Reset accent color",
+  "COLOR_RESET_TITLE": "Reset",
+  "ERROR_404_TITLE": "Page not found",
+  "ERROR_404_DESCRIPTION": "The page you're looking for doesn't exist. Back to home.",
+  "ERROR_404_HEADING": "404 - Page not found",
+  "ERROR_404_TEXT": "Sorry, the page you're looking for doesn't exist.",
+  "ERROR_404_HOME_LINK": "Back to home"
 }

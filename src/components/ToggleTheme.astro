@@ -1,6 +1,13 @@
+---
+import { getI18N } from '@/i18n/index.ts'
+
+const { currentLocale } = Astro
+const locate = getI18N({ currentLocale })
+---
+
 <theme-toggle data-button="checkbox">
-  <button data-theme-toggle aria-label="Cambiar tema">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <button data-theme-toggle aria-label={locate.THEME_TOGGLE_ARIA}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
       <path
         class="sun"
         fill-rule="evenodd"
@@ -35,12 +42,16 @@
   }
 </style>
 <style>
+  theme-toggle {
+    width: 24px;
+    height: 24px;
+  }
+
   [data-theme-toggle] {
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-    width: 27px;
     -webkit-tap-highlight-color: transparent;
     transition: scale var(--duration-base) ease-in-out;
 
@@ -49,8 +60,10 @@
     }
 
     & svg {
-      width: 100%;
-      height: auto;
+      --size: 100%;
+
+      width: var(--size);
+      height: var(--size);
     }
   }
 </style>

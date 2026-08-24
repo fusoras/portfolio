@@ -1,14 +1,16 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import { getI18N } from '@/i18n/index.ts'
+
+const { currentLocale } = Astro
+const locate = getI18N({ currentLocale })
 ---
 
-<Layout title="Página no encontrada" description="La página que buscas no existe. Vuelve al inicio.">
+<Layout title={locate.ERROR_404_TITLE} description={locate.ERROR_404_DESCRIPTION}>
   <div>
-    <h1>
-      404 - Page Not Found / Pagina no encontrada
-    </h1>
-    <p>Lo sentimos, la pagina que buscas no existe.</p>
-    <a href="/">Volver al inicio</a>
+    <h1>{locate.ERROR_404_HEADING}</h1>
+    <p>{locate.ERROR_404_TEXT}</p>
+    <a href="/">{locate.ERROR_404_HOME_LINK}</a>
   </div>
 </Layout>
 
@@ -39,5 +41,4 @@ import Layout from '@/layouts/Layout.astro'
       background-color: var(--border);
     }
   }
-  
 </style>

@@ -1,13 +1,14 @@
 ---
 import ToggleTheme from '@/components/ToggleTheme.astro'
 import ColorPicker from '@/components/ColorPicker.astro'
+import ButtonsAccessibility from '@/components/ButtonsAccessibility.astro'
 import { getI18N } from '@/i18n/index.ts'
 
 const { currentLocale } = Astro
 const locate = getI18N({ currentLocale })
 ---
 
-<button popovertarget="settings" aria-label="Abrir configuraciónes">
+<button popovertarget="settings" aria-label={locate.SETTINGS_OPEN_ARIA}>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -30,9 +31,12 @@ const locate = getI18N({ currentLocale })
     <p>{locate.THEME_TITLE}:</p>
     <ToggleTheme />
   </div>
-
   <div class="line"></div>
-
+  <div class="font-size">
+    <p>{locate.FONT_SIZE_TITLE}:</p>
+    <ButtonsAccessibility />
+  </div>
+  <div class="line"></div>
   <ColorPicker />
 </section>
 
@@ -43,7 +47,7 @@ const locate = getI18N({ currentLocale })
     right: 10px;
     border-radius: 100%;
     border: 2px solid var(--accent);
-    padding: 0.8em;
+    padding: 10px;
     background-color: var(--bg);
     display: flex;
 
@@ -53,9 +57,18 @@ const locate = getI18N({ currentLocale })
     }
 
     & svg {
-      width: var(--icon-md);
-      height: var(--icon-md);
+      --size: 24px;
+
+      width: var(--size);
+      height: var(--size);
     }
+  }
+
+  p {
+    margin-top: 0;
+    margin-block: 8px;
+    font-size: 17px;
+    line-height: 1;
   }
 
   .modal-settings:popover-open {
@@ -66,11 +79,11 @@ const locate = getI18N({ currentLocale })
     inset: unset;
     bottom: 65px;
     right: 5px;
-    padding: var(--space-md);
+    padding: 12px;
     background-color: var(--bg);
     border: 2px solid var(--muted);
     border-radius: var(--radius-tile);
-    gap: var(--space-md);
+    gap: 12px;
     transition: opacity var(--duration-fast) ease-in;
     opacity: 1;
 
@@ -82,7 +95,7 @@ const locate = getI18N({ currentLocale })
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: var(--space-md);
+      gap: 12px;
       transition: translate var(--left-to-right-animation-duration) ease-in-out;
 
       @starting-style {
@@ -106,7 +119,6 @@ const locate = getI18N({ currentLocale })
       & .selector-theme-toggle {
         transition: none;
       }
-
     }
   }
 </style>

@@ -40,5 +40,20 @@
     }
   },
   "OTHER_TECH_TITLE": "Otras tecnologías",
-  "THEME_TITLE": "Tema"
+  "THEME_TITLE": "Tema",
+  "SETTINGS_OPEN_ARIA": "Abrir configuraciones",
+  "FONT_SIZE_TITLE": "Tamaño del texto",
+  "A11Y_INCREASE_TEXT_ARIA": "Aumentar tamaño del texto",
+  "A11Y_DECREASE_TEXT_ARIA": "Disminuir tamaño del texto",
+  "A11Y_RESTORE_TEXT_ARIA": "Restablecer tamaño del texto",
+  "THEME_TOGGLE_ARIA": "Cambiar tema",
+  "COLOR_ACCENT_ARIA": "Seleccionar color de acento",
+  "COLOR_ACCENT_TITLE": "Color de acento",
+  "COLOR_RESET_ARIA": "Restablecer color de acento",
+  "COLOR_RESET_TITLE": "Restablecer",
+  "ERROR_404_TITLE": "Página no encontrada",
+  "ERROR_404_DESCRIPTION": "La página que buscas no existe. Vuelve al inicio.",
+  "ERROR_404_HEADING": "404 - Página no encontrada",
+  "ERROR_404_TEXT": "Lo sentimos, la página que buscas no existe.",
+  "ERROR_404_HOME_LINK": "Volver al inicio"
 }

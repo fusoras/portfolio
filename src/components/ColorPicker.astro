@@ -1,3 +1,10 @@
+---
+import { getI18N } from '@/i18n/index.ts'
+
+const { currentLocale } = Astro
+const locate = getI18N({ currentLocale })
+---
+
 <color-picker data-custom-property="--clrp-accent">
   <div class="selector-accent">
     <input
@@ -5,29 +12,18 @@
       value="#29a35c"
       class="color-picker-accent"
       data-colorpicker
-      aria-label="Seleccionar color de acento"
-      title="Color de acento"
+      aria-label={locate.COLOR_ACCENT_ARIA}
+      title={locate.COLOR_ACCENT_TITLE}
     />
     <button
       class="reset-color"
-      aria-label="Restablecer color de acento"
-      title="Restablecer"
+      aria-label={locate.COLOR_RESET_ARIA}
+      title={locate.COLOR_RESET_TITLE}
       data-resetcolor
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        class="icon icon-tabler icons-tabler-outline icon-tabler-rotate-clockwise"
-        viewBox="0 0 24 24"
-        ><path fill="none" stroke="none" d="M0 0h24v24H0z"></path><path
-          d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5"></path></svg
-      >
+      <svg width="24" height="24">
+        <use href="/assets/icons/buttons.svg#reset"></use>
+      </svg>
     </button>
   </div>
 </color-picker>
@@ -35,7 +31,7 @@
   .selector-accent {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: 12px;
     transition: translate calc(var(--left-to-right-animation-duration) + 50ms)
       ease-in-out;
 
