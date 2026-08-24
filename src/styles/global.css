@@ -53,6 +53,14 @@
   font-size: var(--root-font-size, 1rem);
 }
 
+/* stylelint-disable */
+@media (prefers-reduced-motion: reduce) {
+	* {
+    transition: none !important;
+	}
+}
+/* stylelint-enable */
+
 html {
   display: flex;
   place-content: center;

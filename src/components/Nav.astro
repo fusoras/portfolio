@@ -34,7 +34,7 @@ import ToggleTheme from '@/components/ToggleTheme.astro'
     }
 
     & .nav-items {
-      background-color: var(--muted);
+      background-color: var(--bg);
       display: flex;
       place-items: center;
       place-content: center;
@@ -43,8 +43,8 @@ import ToggleTheme from '@/components/ToggleTheme.astro'
       width: fit-content;
       padding: 12px var(--space-lg);
       border-radius: var(--radius-card) 3px;
-      border-bottom: var(--border-strong);
-      border-right: var(--border-strong);
+      border-bottom: 2px solid transparent;
+      border-right: 2px solid transparent;
       font-size: var(--text-md);
       font-weight: bold;
       animation: animate-header linear both;
@@ -81,9 +81,11 @@ import ToggleTheme from '@/components/ToggleTheme.astro'
 
   @keyframes animate-header {
     to {
-      background-color: hsl(from var(--bg) h s l / 60%);
+      background-color: color-mix(in srgb, var(--bg), transparent 40%);
       backdrop-filter: blur(4px);
       border-radius: 0 3px var(--radius-card);
+      border-bottom: var(--border-strong);
+      border-right: var(--border-strong);
     }
   }
 </style>
