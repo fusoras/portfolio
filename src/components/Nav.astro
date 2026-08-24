@@ -43,8 +43,8 @@ import ToggleTheme from '@/components/ToggleTheme.astro'
       width: fit-content;
       padding: 12px var(--space-lg);
       border-radius: var(--radius-card) 3px;
-      border-bottom: 2px solid var(--border);
-      border-right: 2px solid var(--border);
+      border-bottom: var(--border-strong);
+      border-right: var(--border-strong);
       font-size: var(--text-md);
       font-weight: bold;
       animation: animate-header linear both;
@@ -52,7 +52,7 @@ import ToggleTheme from '@/components/ToggleTheme.astro'
       animation-range: 0 200px;
 
       & a {
-        transition: color 0.2s ease-in-out;
+        transition: color var(--duration-fast) ease-in-out;
       }
 
       & .active,

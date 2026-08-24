@@ -59,8 +59,8 @@ const locate = getI18N({ currentLocale })
     opacity: 0;
     visibility: hidden;
     transition:
-      opacity 0.15s ease,
-      visibility 0.15s ease,
+      opacity var(--duration-fast) ease,
+      visibility var(--duration-fast) ease,
       translate 0.25s ease;
 
     &.show {
@@ -78,7 +78,7 @@ const locate = getI18N({ currentLocale })
     cursor: pointer;
     transition:
       background-color,
-      scale 0.1s ease;
+      scale var(--duration-fast) ease;
 
     &:active {
       background-color: var(--accent);

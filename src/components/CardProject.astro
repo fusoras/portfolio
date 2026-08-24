@@ -72,12 +72,12 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
 
 <style>
   .ar-main {
-    border: 1px solid var(--muted);
+    border: var(--border-default);
     border-radius: var(--radius-card);
     width: 100%;
     height: fit-content;
     overflow: hidden;
-    transition: box-shadow 0.3s;
+    transition: box-shadow var(--duration-base);
     background-color: var(--bg);
     animation: reveal linear both;
     animation-timeline: view();
@@ -109,7 +109,7 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
           font-weight: bold;
           padding: var(--space-sm) var(--space-md);
           box-sizing: border-box;
-          transition: background-color 0.3s;
+          transition: background-color var(--duration-base);
 
           &:active {
             scale: 0.95;
@@ -140,7 +140,7 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
             font-weight: bold;
             padding: var(--space-sm) var(--space-md);
             box-sizing: border-box;
-            transition: background-color 0.3s;
+            transition: background-color var(--duration-base);
 
             &:hover,
             &:active {

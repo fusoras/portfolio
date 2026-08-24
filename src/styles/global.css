@@ -40,6 +40,14 @@
   --icon-sm: 1.1rem;
   --icon-md: 1.5rem;
 
+  /* TRANSITIONS */
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+
+  /* BORDER */
+  --border-default: 1px solid var(--border);
+  --border-strong: 2px solid var(--border);
+
   color-scheme: light dark;
   font-family: var(--sans);
 }
