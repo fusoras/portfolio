@@ -6,7 +6,10 @@ const { currentLocale } = Astro
 const locate = getI18N({ currentLocale })
 ---
 
-<Layout title={locate.ERROR_404_TITLE} description={locate.ERROR_404_DESCRIPTION}>
+<Layout
+  title={locate.ERROR_404_TITLE}
+  description={locate.ERROR_404_DESCRIPTION}
+>
   <div>
     <h1>{locate.ERROR_404_HEADING}</h1>
     <p>{locate.ERROR_404_TEXT}</p>

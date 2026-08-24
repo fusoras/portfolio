@@ -73,7 +73,7 @@ const locate = getI18N({ currentLocale })
 
   .modal-settings:popover-open {
     --left-to-right-animation: -10px 0;
-    --left-to-right-animation-duration: 250ms;
+    --left-to-right-animation-duration: 150ms;
 
     display: grid;
     inset: unset;
@@ -104,6 +104,15 @@ const locate = getI18N({ currentLocale })
 
       & p {
         margin: 0;
+      }
+    }
+
+    & .font-size {
+      transition: translate calc(var(--left-to-right-animation-duration) + 40ms)
+        ease-in-out;
+
+      @starting-style {
+        translate: var(--left-to-right-animation);
       }
     }
 
