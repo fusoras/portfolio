@@ -125,14 +125,14 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
           }
 
           &.btn-demo {
-            --accent-secondary-dark: hsl(302.88deg 63.45% 31.63%);
+            --accent-2-dark: color-mix(in srgb, var(--accent-2), #000 30%);
 
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 4px;
             width: 100%;
-            background-color: var(--accent-secondary);
+            background-color: var(--accent-2);
             color: #fff;
             border-radius: var(--radius-tile);
             font-weight: bold;
@@ -142,7 +142,7 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
 
             &:hover,
             &:active {
-              background-color: var(--accent-secondary-dark);
+              background-color: var(--accent-2-dark);
             }
           }
 
