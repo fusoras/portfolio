@@ -1,0 +1,81 @@
+/* ==== RESET ==== */
+body { margin: 0; }
+
+/* ==== CUSTOM PROPERTIES ==== */
+:root {
+    /* COLORS */
+  --accent: var(--clrp-accent, #30c06c);
+  --accent-dark: color-mix(in srgb, var(--accent), #000 30%);
+  --accent-2: #A02F6F;
+  --fg: #fff;
+  --bg: #100f0f;
+  --muted: #ffffff0d;
+  --border: #ffffff40;
+
+    /* FONTS */
+  --sans: ui-sans-serif, system-ui, sans-serif;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+
+    /* RADII (Rounded corners) */
+  --radius-card: 16px;
+  --radius-tile: 12px;
+  --radius-control: 8px;
+
+    /* SPACING (Padding / Margin / Gap) */
+  --space-sm: 0.65rem;
+  --space-md: 1rem;
+  --space-lg: 1.25rem;
+  --space-xl: 1.5rem;
+  --space-2xl: 2rem;
+
+  /* SIZES */
+  --icon-sm: 1.1rem;
+  --icon-md: 1.5rem;
+
+  /* TRANSITIONS */
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+
+  /* BORDER */
+  --border-default: 1px solid var(--border);
+  --border-strong: 2px solid var(--border);
+}
+
+/* ==== BASE ==== */
+html {
+  color-scheme: light dark;
+  font-family: var(--sans);
+  font-size: var(--root-font-size, 1rem);
+  color: var(--fg);
+  background-color: var(--bg);
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+h2 {
+  font-size: var(--text-2xl);
+  font-weight: bold;
+  margin-bottom: var(--space-xl);
+  color: var(--fg);
+}
+
+h3 {
+  font-size: var(--text-xl);
+  font-weight: bold;
+}
+
+p {
+  text-wrap: pretty;
+  font-size: var(--text-md);
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+}
