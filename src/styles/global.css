@@ -51,6 +51,12 @@ strong {
 }
 /* stylelint-enable */
 
+@media (width <= 500px) {
+  h2 {
+    text-align: center;
+  }
+}
+
 ::view-transition-group(root) {
   animation-duration: 0.5s;
 }
