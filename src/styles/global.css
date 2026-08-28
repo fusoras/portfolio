@@ -1,72 +1,17 @@
+@import url('dsystem.css');
+
 @custom-media --mobile (width <= 700px);
 
-:root {
-  /* COLORS */
-  --accent: var(--clrp-accent, #30c06c);
-  --accent-dark: hsl(from var(--accent) h s calc(l - 10));
-  --accent-secondary: hsl(313.88deg 60.2% 39.41%);
-  --fg: #fff;
-  --bg: #100f0f;
-  --muted: #ffffff0d;
-  --border: #ffffff40;
-
-  /* ===== FONTS ===== */
-  --sans: ui-sans-serif, system-ui, sans-serif;
-  --text-sm: 0.875rem;
-  --text-md: 1rem;
-  --text-xl: 1.5rem;
-  --text-2xl: 2rem;
-  --text-3xl: 2.5rem;
+html {
+  display: flex;
+  place-content: center;
+  scroll-behavior: smooth;
 
   @media (--mobile) {
     --text-xl: 1.2rem;
     --text-2xl: 1.5rem;
     --text-3xl: 2rem;
   }
-
-  /* RADII (Rounded corners) */
-  --radius-card: 16px;
-  --radius-tile: 12px;
-  --radius-control: 8px;
-
-  /* ===== SPACING (Padding / Margin / Gap) ===== */
-  --space-sm: 0.65rem;
-  --space-md: 1rem;
-  --space-lg: 1.25rem;
-  --space-xl: 1.5rem;
-  --space-2xl: 2rem;
-
-  /* SIZES */
-  --icon-sm: 1.1rem;
-  --icon-md: 1.5rem;
-
-  /* TRANSITIONS */
-  --duration-fast: 150ms;
-  --duration-base: 300ms;
-
-  /* BORDER */
-  --border-default: 1px solid var(--border);
-  --border-strong: 2px solid var(--border);
-
-  color-scheme: light dark;
-  font-family: var(--sans);
-  font-size: var(--root-font-size, 1rem);
-}
-
-/* stylelint-disable */
-@media (prefers-reduced-motion: reduce) {
-	* {
-    transition: none !important;
-	}
-}
-/* stylelint-enable */
-
-html {
-  display: flex;
-  place-content: center;
-  scroll-behavior: smooth;
-  color: var(--fg);
-  background-color: var(--bg);
 
   @media (prefers-reduced-motion: reduce) {
     scroll-behavior: auto;
@@ -89,41 +34,22 @@ html {
 }
 
 body {
-  margin: 0;
   padding: clamp(16px, 8vw, 32px);
   width: min(700px, 90%);
   border-inline: 1px solid var(--border);
-}
-
-h1 {
-  font-size: var(--text-3xl);
-}
-
-h2 {
-  font-size: var(--text-2xl);
-  font-weight: bold;
-  margin-bottom: var(--space-xl);
-  color: var(--fg);
-}
-
-h3 {
-  font-size: var(--text-xl);
-  font-weight: bold;
 }
 
 strong {
   color: var(--accent);
 }
 
-a {
-  color: var(--fg);
-  text-decoration: none;
+/* stylelint-disable */
+@media (prefers-reduced-motion: reduce) {
+	* {
+    transition: none !important;
+	}
 }
-
-p {
-  text-wrap: pretty;
-  font-size: var(--text-md);
-}
+/* stylelint-enable */
 
 ::view-transition-group(root) {
   animation-duration: 0.5s;
