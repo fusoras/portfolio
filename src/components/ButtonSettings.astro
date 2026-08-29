@@ -122,6 +122,12 @@ const locate = getI18N({ currentLocale })
     }
   }
 
+  @property --left-to-right-animation {
+    syntax: "<length>+";
+    inherits: true;
+    initial-value: 0;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .modal-settings:popover-open {
       transition: none;

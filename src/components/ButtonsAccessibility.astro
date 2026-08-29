@@ -44,9 +44,25 @@ const locate = getI18N({ currentLocale })
     gap: 6px;
 
     & button {
+      display: flex;
+      flex-wrap: wrap;
+      place-content: center;
       background: none;
       border: none;
       cursor: pointer;
+      padding: 0;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      transition: background-color var(--duration-fast);
+
+      &:hover {
+        background-color: color-mix(in srgb,var(--fg) 8%, transparent);
+      }
+
+      &:active {
+        scale: .95;
+      }
     }
 
     & .restore-text {
