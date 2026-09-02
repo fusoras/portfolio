@@ -16,9 +16,9 @@ body { margin: 0; }
   --sans: ui-sans-serif, system-ui, sans-serif;
   --text-sm: 0.875rem;
   --text-md: 1rem;
-  --text-xl: clamp(1.2rem, 1.118rem + 0.436vw, 1.5rem);
-  --text-2xl: clamp(1.5rem, 1.364rem + 0.727vw, 2rem);
-  --text-3xl: clamp(2rem, 1.864rem + 0.727vw, 2.5rem);
+  --text-xl: clamp(1.2rem, 1.152rem + 0.387vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.143rem + 0.952vw, 2rem);
+  --text-3xl: clamp(2rem, 1.868rem + 0.702vw, 2.5rem);
 
     /* RADII (Rounded corners) */
   --radius-card: 16px;
