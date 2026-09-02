@@ -1,6 +1,10 @@
 @import url('dsystem.css');
 
-@custom-media --mobile (width <= 700px);
+:root {
+  --text-xl: clamp(1.2rem, 1.052rem + 0.387vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.343rem + 0.952vw, 2rem);
+  --text-3xl: clamp(2rem, 1.868rem + 0.702vw, 2.5rem);
+}
 
 html {
   display: flex;
@@ -17,7 +21,7 @@ html {
 
   &[data-theme='light'] {
     --accent: var(--clrp-accent, #2fa25f);
-    --accent-2: #CE5D97;
+    --accent-2: #ce5d97;
     --bg: #fffcf0;
     --fg: #000;
     --muted: #0000000d;
@@ -39,9 +43,9 @@ strong {
 
 /* stylelint-disable */
 @media (prefers-reduced-motion: reduce) {
-	* {
+  * {
     transition: none !important;
-	}
+  }
 }
 /* stylelint-enable */
 

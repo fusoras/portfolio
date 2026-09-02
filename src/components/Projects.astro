@@ -99,14 +99,12 @@ const locate = getI18N({ currentLocale })
   </CardProject>
 </div>
 <style>
-  @custom-media --mobile (width <= 700px);
-
   .container-projects {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: var(--space-lg);
 
-    @media (--mobile) {
+    @media (width <= 700px) {
       gap: var(--space-2xl);
     }
 

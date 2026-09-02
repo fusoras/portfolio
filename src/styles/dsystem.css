@@ -2,7 +2,7 @@
 body { margin: 0; }
 
 /* ==== CUSTOM PROPERTIES ==== */
-:root {
+:where(:root) {
     /* COLORS */
   --accent: var(--clrp-accent, #30c06c);
   --accent-dark: color-mix(in srgb, var(--accent), #000 30%);
@@ -16,9 +16,9 @@ body { margin: 0; }
   --sans: ui-sans-serif, system-ui, sans-serif;
   --text-sm: 0.875rem;
   --text-md: 1rem;
-  --text-xl: clamp(1.2rem, 1.052rem + .387vw, 1.5rem);
-  --text-2xl: clamp(1.5rem, 1.343rem + .952vw, 2rem);
-  --text-3xl: clamp(2rem, 1.868rem + 0.702vw, 2.5rem);
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
 
     /* RADII (Rounded corners) */
   --radius-card: 16px;
@@ -46,7 +46,7 @@ body { margin: 0; }
 }
 
 /* ==== BASE ==== */
-html {
+:where(html) {
   color-scheme: light dark;
   font-family: var(--sans);
   font-size: var(--root-font-size, 1rem);
@@ -54,28 +54,28 @@ html {
   background-color: var(--bg);
 }
 
-h1 {
+:where(h1) {
   font-size: var(--text-3xl);
 }
 
-h2 {
+:where(h2) {
   font-size: var(--text-2xl);
   font-weight: bold;
   margin-bottom: var(--space-xl);
   color: var(--fg);
 }
 
-h3 {
+:where(h3) {
   font-size: var(--text-xl);
   font-weight: bold;
 }
 
-p {
+:where(p) {
   text-wrap: pretty;
   font-size: var(--text-md);
 }
 
-a {
+:where(a) {
   color: var(--fg);
   text-decoration: none;
 }
