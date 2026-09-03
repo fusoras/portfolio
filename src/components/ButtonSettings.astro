@@ -8,7 +8,11 @@ const { currentLocale } = Astro
 const locate = getI18N({ currentLocale })
 ---
 
-<button popovertarget="settings" aria-label={locate.SETTINGS_OPEN_ARIA}>
+<button
+  popovertarget="settings"
+  aria-label={locate.SETTINGS_OPEN_ARIA}
+  class="btn-settings"
+>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -41,7 +45,7 @@ const locate = getI18N({ currentLocale })
 </section>
 
 <style>
-  button[popovertarget] {
+  .btn-settings {
     position: fixed;
     bottom: 10px;
     right: 10px;
@@ -123,7 +127,7 @@ const locate = getI18N({ currentLocale })
   }
 
   @property --left-to-right-animation {
-    syntax: "<length>+";
+    syntax: '<length>+';
     inherits: true;
     initial-value: 0;
   }
