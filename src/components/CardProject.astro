@@ -1,6 +1,12 @@
 ---
 import { getI18N } from '@/i18n/index.ts'
 
+interface Props {
+  linkWeb?: string
+  linkRepo?: string
+  linkYt?: string
+}
+
 const { currentLocale } = Astro
 const locate = getI18N({ currentLocale })
 const { linkWeb, linkRepo, linkYt } = Astro.props
