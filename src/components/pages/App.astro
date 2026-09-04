@@ -7,7 +7,7 @@ import Experience from '@/components/Experience.astro'
 import Projects from '@/components/Projects.astro'
 import Tech from '@/components/Tech.astro'
 import Footer from '@/components/Footer.astro'
-import ButtonSeetings from '@/components/ButtonSettings.astro'
+import ButtonSettings from '@/components/ButtonSettings.astro'
 import { getI18N } from '@/i18n/index.ts'
 
 const { currentLocale } = Astro
@@ -45,7 +45,7 @@ const locate = getI18N({ currentLocale })
 
   <Footer />
 
-  <ButtonSeetings />
+  <ButtonSettings />
 
   <style>
     section:not(:first-of-type) {
