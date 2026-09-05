@@ -24,9 +24,6 @@ importers:
       oxlint:
         specifier: 1.75.0
         version: 1.75.0
-      portless:
-        specifier: 0.15.4
-        version: 0.15.4
       prettier:
         specifier: 3.9.6
         version: 3.9.6
@@ -2193,12 +2190,6 @@ packages:
   picomatch@4.0.5:
     resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
     engines: {node: '>=12'}
-
-  portless@0.15.4:
-    resolution: {integrity: sha512-tOxEsdlDGuPHO6DPkuK3c3mMV5ctXEgVFm53Sa8nfZ2RsRGTq4By424C6z5+JWfNbd3ktR5SOd1FJBOlB1Woqg==}
-    engines: {node: '>=24'}
-    os: [darwin, linux, win32]
-    hasBin: true
 
   postcss-html@1.8.1:
     resolution: {integrity: sha512-OLF6P7qctfAWayOhLpcVnTGqVeJzu2W3WpIYelfz2+JV5oGxfkcEvweN9U4XpeqE0P98dcD9ssusGwlF0TK0uQ==}
@@ -5039,8 +5030,6 @@ snapshots:
   picomatch@2.3.2: {}
 
   picomatch@4.0.5: {}
-
-  portless@0.15.4: {}
 
   postcss-html@1.8.1:
     dependencies:

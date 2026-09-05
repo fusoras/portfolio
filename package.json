@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "type": "module",
   "scripts": {
-    "dev": "portless run astro dev",
+    "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -20,7 +20,6 @@
     "@astrojs/check": "0.9.9",
     "lightningcss": "1.32.0",
     "oxlint": "1.75.0",
-    "portless": "0.15.4",
     "prettier": "3.9.6",
     "prettier-plugin-astro": "0.14.1",
     "stylelint": "17.9.1",
