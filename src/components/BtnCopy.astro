@@ -8,12 +8,12 @@ const { currentLocale } = Astro
 const locate = getI18N({ currentLocale })
 ---
 
-<label class="mail" translate="no">
+<label class="mail" translate="no" title={locate.BTN_COPY}>
   <IconMail />
   <p>
     {mailText}
   </p>
-  <button class="btn-copy" title={locate.BTN_COPY}>
+  <button class="btn-copy">
     <IconCopy />
   </button>
   <span class="copy-tooltip" role="status">{locate.BTN_COPIED}</span>
@@ -70,9 +70,16 @@ const locate = getI18N({ currentLocale })
   }
 
   .btn-copy {
-    padding: 5px 4px;
-    background-color: light-dark(#cfcfcf, #4d4d4d);
-    border: none;
+    --size: 30px;
+
+    height: var(--size);
+    width: var(--size);
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    padding: 5px;
+    background-color: var(--bg);
+    border: var(--border-default);
     border-radius: 5px;
     cursor: pointer;
     transition:
@@ -85,9 +92,16 @@ const locate = getI18N({ currentLocale })
     }
 
     & svg {
-      color: var(--fg);
+      color: color-mix(in srgb, var(--fg) 60%, transparent);
       height: var(--icon-sm);
       width: var(--icon-sm);
+      transition: color var(--duration-fast);
+    }
+
+    &:hover {
+      & svg {
+        color: var(--fg);
+      }
     }
   }
 </style>
