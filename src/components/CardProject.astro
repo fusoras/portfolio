@@ -83,15 +83,18 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
     width: 100%;
     height: fit-content;
     overflow: hidden;
-    transition: box-shadow var(--duration-base);
+    transition:
+      box-shadow var(--duration-base),
+      border var(--duration-base);
     background-color: var(--bg);
     animation: reveal linear both;
     animation-timeline: view();
     animation-range: entry 20% cover 30%;
 
     &:hover {
-      box-shadow: 0 10px 30px
-        light-dark(rgb(0 0 0 / 40%), rgb(255 255 255 / 40%));
+      border: 1px solid var(--accent);
+      box-shadow: 2px 10px 25px
+        light-dark(rgb(0 0 0 / 20%), rgb(255 255 255 / 17%));
     }
 
     @media (prefers-reduced-motion: reduce) {
