@@ -4,15 +4,6 @@ import demoPT from '@/assets/proyecto-titulacion-bg.webp'
 import fitBg from '@/assets/fit-bg.webp'
 import demoPTAvif from '@/assets/proyecto-titulacion-bg.avif'
 import fitBgAvif from '@/assets/fit.avif'
-import IconHtml from '@/components/icons/IconHtml.astro'
-import IconCss from '@/components/icons/IconCss.astro'
-import IconAstro from '@/components/icons/IconAstro.astro'
-import WebComponent from '@/components/icons/IconWebComponent.astro'
-import IconTailwind from '@/components/icons/IconTailwind.astro'
-import IconSvelte from '@/components/icons/IconSvelte.astro'
-import IconTypeScript from '@/components/icons/IconTypeScript.astro'
-import IconOpenRouter from '@/components/icons/IconOpenRouter.astro'
-import IconFirebase from '@/components/icons/IconFirebase.astro'
 import { ROUTES } from '@/config.ts'
 import { getI18N } from '@/i18n/index.ts'
 
@@ -41,10 +32,18 @@ const locate = getI18N({ currentLocale })
     </video>
     <h3>{locate.PROJECTS.HAPPY_BIRTHDAY_TITLE}</h3>
     <div class="container-icons">
-      <IconAstro class="icon-languages" />
-      <IconTypeScript class="icon-languages" />
-      <IconTailwind class="icon-languages" />
-      <IconSvelte class="icon-languages" />
+      <svg width="24" height="24">
+        <use href="/assets/icons/languages.svg#astro"></use>
+      </svg>
+      <svg width="24" height="24">
+        <use href="/assets/icons/languages.svg#typescript"></use>
+      </svg>
+      <svg width="24" height="24">
+        <use href="/assets/icons/languages.svg#tailwind"></use>
+      </svg>
+      <svg width="24" height="24">
+        <use href="/assets/icons/languages.svg#svelte"></use>
+      </svg>
     </div>
     <p>
       {locate.PROJECTS.HAPPY_BIRTHDAY_DESCRIPTION}
@@ -63,10 +62,18 @@ const locate = getI18N({ currentLocale })
     </picture>
     <h3>{locate.PROJECTS.DEGREE_TITLE}</h3>
     <div class="container-icons">
-      <IconHtml />
-      <IconCss />
-      <IconOpenRouter />
-      <IconFirebase />
+      <svg width="24" height="24">
+        <use href="/assets/icons/languages.svg#html"></use>
+      </svg>
+      <svg width="24" height="24">
+        <use href="/assets/icons/languages.svg#css"></use>
+      </svg>
+      <svg width="24" height="24">
+        <use href="/assets/icons/languages.svg#open-router"></use>
+      </svg>
+      <svg width="24" height="24">
+        <use href="/assets/icons/languages.svg#firebase"></use>
+      </svg>
     </div>
     <p>
       {locate.PROJECTS.DEGREE_DESCRIPTION}
@@ -88,9 +95,15 @@ const locate = getI18N({ currentLocale })
     </picture>
     <h3>FitZone Gym</h3>
     <div class="container-icons">
-      <IconHtml />
-      <IconCss />
-      <WebComponent />
+      <svg width="24" height="24">
+        <use href="/assets/icons/languages.svg#html"></use>
+      </svg>
+      <svg width="24" height="24">
+        <use href="/assets/icons/languages.svg#css"></use>
+      </svg>
+      <svg width="24" height="24">
+        <use href="/assets/icons/languages.svg#web-components"></use>
+      </svg>
     </div>
 
     <p>
@@ -136,6 +149,13 @@ const locate = getI18N({ currentLocale })
       & svg {
         height: var(--icon-md);
         width: var(--icon-md);
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+        border: var(--border-default);
+        background-color: var(--muted);
+        padding: var(--space-sm);
+        border-radius: var(--radius-tile);
       }
     }
   }
