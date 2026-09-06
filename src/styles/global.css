@@ -1,5 +1,15 @@
 @import url('dsystem.css');
 
+@font-face {
+	font-family: Hammersmith;
+	src:
+		url("/fonts/hammersmith-one-latin-400-normal.woff2") format("woff2"),
+    url("/fonts/hammersmith-one-latin-400-normal.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
 :root {
   --text-xl: clamp(1.2rem, 1.052rem + 0.387vw, 1.5rem);
   --text-2xl: clamp(1.5rem, 1.343rem + 0.952vw, 2rem);
