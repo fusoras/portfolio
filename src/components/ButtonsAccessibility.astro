@@ -57,11 +57,11 @@ const locate = getI18N({ currentLocale })
       transition: background-color var(--duration-fast);
 
       &:hover {
-        background-color: color-mix(in srgb,var(--fg) 8%, transparent);
+        background-color: color-mix(in srgb, var(--fg) 8%, transparent);
       }
 
       &:active {
-        scale: .95;
+        scale: 0.95;
       }
     }
 
@@ -77,107 +77,4 @@ const locate = getI18N({ currentLocale })
   }
 </style>
 
-<script>
-  class ButtonsAccessibility extends HTMLElement {
-    root = document.documentElement
-    #scaleDefault = 16
-    #minScaleDefault = 14
-    #maxScaleDefault = 18
-    #currentScale = this.#scaleDefault
-
-    static get observedAttributes() {
-      return ['no-disabled']
-    }
-
-    attributeChangedCallback() {
-      this.syncButtonsState()
-    }
-
-    connectedCallback() {
-      this.init()
-    }
-
-    init() {
-      const savedScale = localStorage.getItem('currentScale')
-      const savedReduceMotion = localStorage.getItem('reduceMotion')
-
-      const parsedScale = Number.parseFloat(savedScale ?? '')
-      if (Number.isFinite(parsedScale)) {
-        this.#currentScale = parsedScale
-        this.adjustFontSize(0)
-      }
-
-      this.root.classList.toggle('reduce-motion', savedReduceMotion === 'true')
-      this.syncButtonsState()
-      this.syncReduceMotionPressed()
-
-      this.addEventListener('click', ev => {
-        const target = ev.target instanceof Element ? ev.target : null
-        const getClosest = (selector = '') => target?.closest(selector)
-
-        const el = getClosest('[data-a11y-action]')
-        if (!(el instanceof HTMLElement)) return
-        const { a11yAction } = el.dataset
-
-        if (a11yAction === 'increase-text') this.adjustFontSize(1)
-        if (a11yAction === 'decrease-text') this.adjustFontSize(-1)
-
-        if (a11yAction === 'restore-text') {
-          this.#currentScale = this.#scaleDefault
-          localStorage.removeItem('currentScale')
-          this.root.style.removeProperty('--root-font-size')
-          this.syncButtonsState()
-        }
-
-        if (a11yAction === 'reduce-motion') {
-          this.root.classList.toggle('reduce-motion')
-          const isActive = this.root.classList.contains('reduce-motion')
-          localStorage.setItem('reduceMotion', String(isActive))
-          this.syncReduceMotionPressed()
-        }
-      })
-    }
-
-    adjustFontSize(step = 0) {
-      const minimum = this.#minScaleDefault
-      const maximum = this.#maxScaleDefault
-
-      this.#currentScale = Math.min(
-        Math.max(this.#currentScale + step, minimum),
-        maximum,
-      )
-
-      this.root.style.setProperty('--root-font-size', `${this.#currentScale}px`)
-      localStorage.setItem('currentScale', `${this.#currentScale}`)
-      this.syncButtonsState()
-    }
-
-    syncButtonsState() {
-      const noDisabled = this.hasAttribute('no-disabled')
-      if (!noDisabled) {
-        this.querySelector(
-          '[data-a11y-action="increase-text"]',
-        )?.toggleAttribute(
-          'disabled',
-          this.#currentScale === this.#maxScaleDefault,
-        )
-        this.querySelector(
-          '[data-a11y-action="decrease-text"]',
-        )?.toggleAttribute(
-          'disabled',
-          this.#currentScale === this.#minScaleDefault,
-        )
-      }
-    }
-
-    syncReduceMotionPressed() {
-      const isActive = this.root.classList.contains('reduce-motion')
-      this.querySelector('[data-a11y-action="reduce-motion"]')?.setAttribute(
-        'aria-pressed',
-        String(isActive),
-      )
-    }
-  }
-
-  customElements.define('buttons-accessibility', ButtonsAccessibility)
-</script>
+<script src="@/scripts/buttons-accessibility.js"></script>
