@@ -84,11 +84,10 @@ const locate = getI18N({ currentLocale })
     }
   }
 
-  .modal-settings:popover-open {
+  .modal-settings {
     --left-to-right-animation: -10px 0;
     --left-to-right-animation-duration: 150ms;
 
-    display: grid;
     inset: unset;
     bottom: 65px;
     right: 5px;
@@ -98,11 +97,6 @@ const locate = getI18N({ currentLocale })
     border-radius: var(--radius-tile);
     gap: 12px;
     transition: opacity var(--duration-fast) ease-in;
-    opacity: 1;
-
-    @starting-style {
-      opacity: 0;
-    }
 
     & .selector-theme-toggle {
       display: flex;
@@ -110,10 +104,6 @@ const locate = getI18N({ currentLocale })
       align-items: center;
       gap: 12px;
       transition: translate var(--left-to-right-animation-duration) ease-in-out;
-
-      @starting-style {
-        translate: var(--left-to-right-animation);
-      }
 
       & p {
         margin: 0;
@@ -123,10 +113,6 @@ const locate = getI18N({ currentLocale })
     & .font-size {
       transition: translate calc(var(--left-to-right-animation-duration) + 40ms)
         ease-in-out;
-
-      @starting-style {
-        translate: var(--left-to-right-animation);
-      }
     }
 
     & .line {
@@ -134,22 +120,8 @@ const locate = getI18N({ currentLocale })
     }
   }
 
-  /* Fallback polyfill: :popover-open vía class. */
-  /* stylelint-disable-next-line selector-class-pattern -- clase del polyfill */
-  .modal-settings.\:popover-open {
-    --left-to-right-animation: -10px 0;
-    --left-to-right-animation-duration: 150ms;
-
+  .modal-settings:popover-open {
     display: grid;
-    inset: unset;
-    bottom: 65px;
-    right: 5px;
-    padding: 12px;
-    background-color: var(--bg);
-    border: 2px solid var(--muted);
-    border-radius: var(--radius-tile);
-    gap: 12px;
-    transition: opacity var(--duration-fast) ease-in;
     opacity: 1;
 
     @starting-style {
@@ -157,32 +129,38 @@ const locate = getI18N({ currentLocale })
     }
 
     & .selector-theme-toggle {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px;
-      transition: translate var(--left-to-right-animation-duration) ease-in-out;
-
       @starting-style {
         translate: var(--left-to-right-animation);
-      }
-
-      & p {
-        margin: 0;
       }
     }
 
     & .font-size {
-      transition: translate calc(var(--left-to-right-animation-duration) + 40ms)
-        ease-in-out;
+      @starting-style {
+        translate: var(--left-to-right-animation);
+      }
+    }
+  }
 
+  /* Fallback polyfill */
+  /* stylelint-disable-next-line selector-class-pattern -- clase del polyfill */
+  .modal-settings.\:popover-open {
+    display: grid;
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+
+    & .selector-theme-toggle {
       @starting-style {
         translate: var(--left-to-right-animation);
       }
     }
 
-    & .line {
-      border: var(--border-default);
+    & .font-size {
+      @starting-style {
+        translate: var(--left-to-right-animation);
+      }
     }
   }
 
@@ -193,16 +171,7 @@ const locate = getI18N({ currentLocale })
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .modal-settings:popover-open {
-      transition: none;
-
-      & .selector-theme-toggle {
-        transition: none;
-      }
-    }
-
-    /* stylelint-disable-next-line selector-class-pattern -- clase del polyfill */
-    .modal-settings.\:popover-open {
+    .modal-settings {
       transition: none;
 
       & .selector-theme-toggle {
