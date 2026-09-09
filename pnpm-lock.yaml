@@ -14,6 +14,9 @@ importers:
       astro:
         specifier: 6.4.8
         version: 6.4.8(@types/node@26.1.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.62.2)(supports-color@10.2.2)(yaml@2.9.0)
+      scroll-timeline-polyfill:
+        specifier: 1.1.0
+        version: 1.1.0
     devDependencies:
       '@astrojs/check':
         specifier: 0.9.9
@@ -2373,6 +2376,9 @@ packages:
   sax@1.6.1:
     resolution: {integrity: sha512-42tBVwLWnaQvW5zc4HbZrTuWccECCZfBi92FDuwtqxasH+JbPB3/FOKb1m222K42R4WxuxzzMsTswfzgtSu64Q==}
     engines: {node: '>=11.0.0'}
+
+  scroll-timeline-polyfill@1.1.0:
+    resolution: {integrity: sha512-BpL3gk3Ynt/5VYaDFUNUP/FTkDldwKQnWcA07g/mDHkMVS9pQUyUXBpsy4RZYAgsfFeI1tWcnPNrEFtCpQoO9Q==}
 
   semver@7.8.5:
     resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
@@ -5270,6 +5276,8 @@ snapshots:
       suf-log: 2.5.3
 
   sax@1.6.1: {}
+
+  scroll-timeline-polyfill@1.1.0: {}
 
   semver@7.8.5: {}
 
