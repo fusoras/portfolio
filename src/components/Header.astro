@@ -52,6 +52,10 @@ const locate = getI18N({ currentLocale })
     @media (prefers-reduced-motion: reduce) {
       animation: none;
     }
+
+    @media print {
+      color: #000;
+    }
   }
 
   @keyframes shimmer {

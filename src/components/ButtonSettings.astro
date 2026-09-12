@@ -67,6 +67,10 @@ const locate = getI18N({ currentLocale })
       width: var(--size);
       height: var(--size);
     }
+
+    @media print {
+      display: none;
+    }
   }
 
   p {

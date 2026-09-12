@@ -114,3 +114,14 @@ strong {
     clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
   }
 }
+
+@media print { 
+  html {
+    background-color: #fff;
+    color: #000;
+  }
+
+  h2 {
+    color: #000;
+  }
+}

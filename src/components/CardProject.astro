@@ -102,6 +102,10 @@ const { linkWeb, linkRepo, linkYt } = Astro.props
       animation: none;
     }
 
+    @media print {
+      animation: none;
+    }
+
     & .container-content {
       padding: 0 var(--space-lg) var(--space-xl);
 

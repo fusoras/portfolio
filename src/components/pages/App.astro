@@ -51,10 +51,18 @@ const locate = getI18N({ currentLocale })
     section:not(:first-of-type) {
       padding-top: var(--space-2xl);
       margin-bottom: var(--space-2xl);
+
+      @media print {
+        padding-top: var(--space-xl);
+      }
     }
 
     #home {
       padding-block: 6rem;
+
+      @media print {
+        padding-block: 0;
+      }
     }
   </style>
 </Layout>
