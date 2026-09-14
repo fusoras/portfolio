@@ -18,6 +18,7 @@
 
 html {
   display: flex;
+  flex-wrap: wrap;
   place-content: center;
   scroll-behavior: smooth;
 
