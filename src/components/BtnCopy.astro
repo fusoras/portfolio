@@ -9,7 +9,7 @@ const locate = getI18N({ currentLocale })
 ---
 
 <label class="mail" translate="no" title={locate.BTN_COPY}>
-  <IconMail />
+  <IconMail class="icon-mail" />
   <p>
     {mailText}
   </p>
@@ -20,6 +20,13 @@ const locate = getI18N({ currentLocale })
 </label>
 
 <style>
+  .icon-mail {
+    color: color-mix(in srgb, var(--fg) 80%, transparent);
+    background-color: var(--muted);
+    border: var(--border-default);
+    border-radius: var(--radius-control);
+  }
+
   .mail {
     position: relative;
     display: flex;
@@ -35,6 +42,13 @@ const locate = getI18N({ currentLocale })
 
     & p {
       margin: 0;
+      color: color-mix(in srgb, var(--fg) 70%, transparent);
+      transition: color var(--duration-fast) cubic-bezier(0.4, 0, 1, 1);
+
+      &:hover {
+        color: var(--fg);
+        text-decoration: underline;
+      }
     }
 
     & svg {
