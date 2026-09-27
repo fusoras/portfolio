@@ -34,7 +34,15 @@ class ThemeToggle extends HTMLElement {
       })
     }
   }
+  playSound() {
+    const $sound = document.querySelector('[data-theme-sound]')
+    if (!($sound instanceof HTMLAudioElement)) return
+    $sound.currentTime = 0
+    $sound.volume = 0.2
+    $sound.play()?.catch(() => { })
+  }
   handleToggleClick() {
+    this.playSound()
     const nextTheme = this.$root.dataset.theme === 'dark' ? 'light' : 'dark'
 
     const switchTheme = () => {
