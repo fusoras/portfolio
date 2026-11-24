@@ -93,10 +93,14 @@ const locate = getI18N({ currentLocale })
     linkRepo={`${ROUTES.REPOSITORY}/page-fake1`}
   >
     <picture slot="cover">
-      <source srcset={fitBgAvif.src} type="image/avif" />
-      <source srcset={fitBg.src} type="image/webp" />
+      <source srcset="/assets/images/fit-gym.avif" type="image/avif" />
+      <source srcset="/assets/images/fit-gym.webp" type="image/webp" />
       <img
-        src={fitBg.src}
+        src="/assets/images/fit-gym.webp"
+        width="510"
+        height="300"
+        loading="lazy"
+        decoding="async"
         alt="FitZone Gym mostrando diseño responsivo y estilo moderno"
         class="ar-main-cover"
         title="FitZone Gym"
