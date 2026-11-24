@@ -1,9 +1,6 @@
 # build output
 dist/
 
-# generated svg sprites
-public/assets/icons/
-
 # generated types
 .astro/
 
