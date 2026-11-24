@@ -2,7 +2,7 @@
 dist/
 .output/
 
-# generated svg sprites (vite-plugin-supersvg)
+# generated svg sprites
 public/assets/icons/
 
 # dependencies
