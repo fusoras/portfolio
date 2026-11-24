@@ -23,12 +23,13 @@ const locate = getI18N({ currentLocale })
       autoplay
       muted
       loop
-      poster="/imgs/happy-birthday.avif"
+      poster="/assets/videos/hbirthday.webp"
+      playsinline
       class="ar-main-cover"
       title={locate.PROJECTS.HAPPY_BIRTHDAY_TITLE}
     >
-      <source src="/videos/hb-av1.mp4" type="video/mp4" />
-      <source src="/videos/hb-h264.mp4" type="video/mp4" />
+      <source src="/assets/videos/hbirthday.webm" type="video/webm" />
+      <source src="/assets/videos/hbirthday.mp4" type="video/mp4" />
     </video>
     <h3>{locate.PROJECTS.HAPPY_BIRTHDAY_TITLE}</h3>
     <div class="container-icons">
